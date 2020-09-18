@@ -1,0 +1,93 @@
+%ADVERB
+Customer
+UUNET
+Detailed
+Complete
+Management
+User
+Initial
+Preliminary
+Object
+Prototype
+System
+
+%NOUN
+Prototype
+Network
+Network topology
+Management
+Requirements
+Specifications
+Documents
+Scheme
+Strategy
+Environment
+Plan
+Outlook
+Architecture
+QA Plan
+Procedures
+Web
+Internet
+Application
+Data
+Database
+Model
+Process
+
+%OBJECT
+\NOUN
+(2)\ADVERB \NOUN
+
+
+%VERB
+(3)Design
+(3)Develop
+(2)Document
+Review
+Order
+Code
+Write
+Test
+Evaluate
+Sign-off
+Convert
+
+%TITLES
+ECM Requirements
+ECM Software Development
+Business Modeling
+Process model
+
+%HEADING
+\VERB \TITLES
+
+%TOPIC
+(9)\VERB \OBJECT
+(4)\VERB \OBJECT and \OBJECT
+(3)\HEADING
+\ADVERB \OBJECT \VERB
+\OBJECT \VERB
+
+
+
+
+%ITEM3
+         o \TOPIC\!\ITEM3
+         o \TOPIC\!
+\ITEM3
+
+%ITEM2
+    - \TOPIC\!\ITEM3
+    - \TOPIC\!
+\ITEM2\ITEM2
+
+
+%ITEM1
+\TOPIC\!
+\TOPIC\!\ITEM2
+(2)\ITEM1\!\ITEM1
+
+%MAIN
+\ITEM1
+

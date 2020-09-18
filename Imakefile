@@ -1,0 +1,10 @@
+XCOMM
+XCOMM Imakefile for SPEW
+XCOMM
+
+           SRCS = spew.c
+           OBJS = spew.c
+
+ComplexProgramTarget(spew)
+
+

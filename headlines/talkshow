@@ -1,0 +1,57 @@
+\*	SPEW File to Generate Talk Show Topics
+\*
+\*	By Mark A. Feit <feit@era.com> or <...uunet!era!feit>
+\*
+\*	This material is copyright (C)1992 Mark A. Feit.  Permission to
+\*	use, copy, modify and distribute this material is hereby granted
+\*	free of license to all, provided this notice appears in its
+\*	entirety.  Modified files must be distributed with a notice
+\*	indicating that it is not the "official" version.
+
+%ADJECTIVE
+Overweight
+Bettered
+Handicapped
+Homosexual
+Psychotic
+Unwed
+
+%PEOPLE
+Incest Victims
+Circus Clowns
+Couples
+Prostitutes
+AIDS Patients
+Sex Addicts
+
+%WHATTHEYDO
+Married To
+Raped By
+Who Murder
+In Love with
+Fooling Around With
+Writing Books About
+
+%TOWHOM
+Alcoholics
+Serial Killers
+Their Fathers
+Organ Donors
+Madonna
+
+%TOPIC
+\ADJECTIVE \PEOPLE \WHATTHEYDO \TOWHOM
+
+%TALKSHOW
+Donnahue
+Geraldo
+Larry King Live
+Oprah
+Sally Jessy Raphael
+
+%MAIN
+\TOPIC... Today on \TALKSHOW.\!
+%%
+
+
+

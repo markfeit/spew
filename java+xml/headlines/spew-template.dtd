@@ -1,0 +1,23 @@
+
+
+<!DOCTYPE spew-template [
+
+  <!ELEMENT newline EMPTY>
+
+  <!ELEMENT invocation EMPTY>
+  <!ATTLIST invocation category CDATA #REQUIRED>
+  <!ATTLIST invocation modifier CDATA>
+
+  <!ELEMENT item ( (#PCDATA|newline|invocation)* )>
+  <!ELEMENT category-list (item+)>
+
+
+   <!ELEMENT spew-template (name,description,category-list)>
+   <!ATTLIST spew-template name CDATA #REQUIRED>
+
+
+]>
+
+
+
+

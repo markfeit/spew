@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE spew-template SYSTEM "spew-template.dtd">
+
+<spew-template>
+  <name>talkshow</name>
+  <description>Generates topics for your favorite afternoon talk show</description>
+
+    <category name="adjective">
+      <item>Overweight</item>
+      <item>Bettered</item>
+      <item>Handicapped</item>
+      <item>Homosexual</item>
+      <item>Psychotic</item>
+      <item>Unwed</item>
+    </category>
+
+    <category name="people">
+      <item>Incest Victims</item>
+      <item>Circus Clowns</item>
+      <item>Couples</item>
+      <item>Prostitutes</item>
+      <item>AIDS Patients</item>
+      <item>Sex Addicts</item>
+    </category>
+
+    <category name="what-they-do">
+      <item>Married To</item>
+      <item>Raped By</item>
+      <item>Who Murder</item>
+      <item>In Love with</item>
+      <item>Fooling Around With</item>
+      <item>Writing Books About</item>
+    </category>
+
+    <category name="to-whom">
+      <item>Alcoholics</item>
+      <item>Serial Killers</item>
+      <item>Their Fathers</item>
+      <item>Organ Donors</item>
+      <item>Madonna</item>
+    </category>
+
+    <category name="topic">
+      <item><invoke category="adjective"/> <invoke category="people"/> <invoke category="whattheydo"/> <invoke category="to-whom"/></item>
+    </category>
+
+    <category name="talkshow">
+      <item>Donnahue</item>
+      <item>Geraldo</item>
+      <item>Larry King Live</item>
+      <item>Oprah</item>
+      <item>Sally Jessy Raphael</item>
+    </category>
+
+    <category name="main">
+      <item><invoke category="topic"/>... Today on <invoke category="talkshow"/>.<newline/></item>
+    </category>
+
+  </category-list>
+
+</spew-template>

@@ -1,0 +1,23 @@
+		  The Young Person's Guide to "Spew"
+
+
+"Spew" is a program that randomly generates National Enquirer-style
+headlines.
+
+If you're using Spew here at ERA, add the following to your .cshrc:
+
+	setenv RULESFILE /home/mark/src/spew/headlines/headline
+	set path=($path /home/mark/bin/sun4)
+
+Now you're set to go.
+
+A quick summary of how to spew:
+
+	spew			Gets you a headline
+	spew 28			Gets you 28 headlines
+	spew foo		Gets you a headline based on the rules in
+				the file `foo.'
+	spew 28 foo		Like `spew foo,' only more so.
+
+
+Enjoy, and please don't take anything you read too seriously.

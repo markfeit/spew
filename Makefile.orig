@@ -1,0 +1,6 @@
+spew: spew.c
+	cc -o spew spew.c
+
+public:
+	chmod 4711 spew-disclaimer
+

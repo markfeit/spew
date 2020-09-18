@@ -1,0 +1,172 @@
+\* Spew headline file to make lunch recommendations
+
+\* ------------------------------------------------------------------------
+\*
+\* Things to customize locally:
+
+\* Who the e-mail should be sent to
+%RECIP
+To: mfeit+wheel-o-lunch
+
+\* Places to eat
+%PLACENAME
+Amphora Diner
+Anita's
+Bombay Bistro
+Boston Market
+Bubba's BBQ
+Celebrity Deli
+Cha Gio
+Chevy's
+Dolce Vita
+Dominion Deli
+Fast Eddie's
+Fuddrucker's
+Golden Dragon (ex Black-Eyed Pea)
+Greek Grill (ex Vienna Pizza)
+Hunan Gate
+Hog's Breath Bar-B-Q
+International House o' Pancakes
+Joe's Pizza & Pasta
+La Choza
+La Madeline
+New Beijing
+Old Country Buffet
+Old Hickory Grill
+Pan Am Family Restaurant (The Greek Place)
+Pizza Hut
+Pizzeria Uno
+Punjab Dhaba
+Ruby Tuesday's
+Salads at the Giant
+Saigon House
+Skorpios
+Subway
+Sweetwater Tavern
+Taste o' Thai
+The Chinese Place near Strike Zone in Vienna
+Tippy's Tacos
+
+
+\* ------------------------------------------------------------------------
+
+%FROM
+From: nobody@uu.net (\WHOFROM)
+
+%WHOFROM
+The \WOL
+\NAME
+(3)\NAME, Wheel o' Lunch \POSITION
+
+%NAME
+Hugo Flunge
+Lun Chaney
+
+
+%POSITION
+Big Cheese
+Editor-in-Chief
+Grand Poobah
+Head Honcho
+
+
+%SUBJ
+A Pronouncement from the
+Musings from the
+Today's
+Your
+
+%SUBJECT
+Subject: \SUBJ \WOL
+
+%PLACE
+(15)     \PLACENAME
+(2)     The line between "\PLACENAME"...\!      ...and "\PLACENAME"
+     FIND SOMEPLACE NEW AND REPORT BACK
+     BUY A VOWEL (You Decide)
+
+%ADJECTIVE
+all-knowing
+almighty
+benevolent
+clarivoyant
+daily
+incomparable
+incompetent
+incredible
+inedible
+invincible
+magical
+mystic
+new and improved
+omnipotent
+pathetic
+psychopathic
+silly
+spiritual
+telekinetic
+telepathic
+
+%WOL
+(7)\ADJECTIVE Wheel o' Lunch
+Wheel o' Lunch
+
+%TURNTHING
+gyrates wildly
+rotates
+spins
+turns
+wobbles
+
+%AROUND
+about
+around
+'round
+
+%MIDDLE
+center
+shaft
+major axis
+
+%TURNS
+(2)\TURNTHING
+\TURNTHING \AROUND its \MIDDLE
+
+%STOPS
+comes to rest
+halts abruptly
+lurches to a halt
+screeches to a halt
+stops
+
+%WISHES
+bids
+wishes
+
+%GOODEATING
+a pleasant meal
+fine dining
+good eating
+a pleasing gastronomic experience
+
+%ENDER
+All decisions of the \WOL shall be final.
+(3)The \WOL \WISHES you \GOODEATING.
+The \WOL shall be obeyed.
+Hey!  I am the \WOL, and you will respect my authoratah!
+Thus spake the \WOL.
+
+%SENT
+cranked out
+excreted
+generated
+ground out
+secreted
+sent
+spewed
+
+%SENDER
+This message was \SENT automagically.
+
+%MAIN
+\FROM\!\RECIP\!\SUBJECT\!\!The \WOL \TURNS and \STOPS on... \!\!\PLACE\!\!\ENDER\!\!\SENDER\!

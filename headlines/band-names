@@ -1,0 +1,149 @@
+\* Band Names
+
+
+%ADJECTIVE
+\ADJECTIVE \ADJECTIVE
+\COLOR
+Exploding
+Surrealistic
+Agnostic
+Amish
+Atheist
+Baptist
+Buddhist
+Catholic
+Christian
+Druid
+Episcopalian
+Gnostic
+Hare Krishna
+Heathen
+Holy Roller
+Islamic
+Jewish
+Lutheran
+Mennonite
+Methodist
+Muslim
+Mystic
+Nudist
+Presbyterian
+Quaker
+Roman Catholic
+Russian Orthodox
+Shaker
+Superstitious
+Unconscious
+Apathetic
+Batty
+Crazed
+Depressed
+Dissolute
+Disturbed
+Drug-Crazed
+Drunken
+Extroverted
+Fanatical
+Freaky
+Goofy
+Hostile
+Insane
+Introverted
+Mad
+Maniacal
+Manic Depressive
+Neurotic
+Nutty
+Pathetic
+Perverted
+Psychopathic
+Psychotic
+Religious
+Screwy
+Spacey
+Strange
+Suicidal
+Urban
+Wacky
+Wild
+
+
+%COLOR
+Red
+Orange
+Yellow
+Green
+Blue
+Indigo
+Violet
+White
+Grey
+Black
+
+%NOUN{as}
+{|A |}Chicken{||s}
+{|A |}Fruit Pie{||s}
+{|A |}Beer Bottle{||s}
+{|A |}Can{||s} of Tuna Fish
+{|A |}Condom{||s}
+{|A |}Cow Patt{y|y|ies}
+{|A |}Cow{||s}
+{|A |}Fork{||s}
+{|A |}Girl{||s}
+{|A |}Gordion Knot{||s}
+{|A |}Great Ball{||s} Of Fire
+{|A |}Junk Bond{||s}
+{|A |}Lamp Shade{||s}
+{|A |}Magazine{||s}
+{|A |}Mind Control Device{||s}
+{|A |}Rubber Duck{y|y|ies}
+{|A |}Slithy Tove{||s}
+{|A |}Spoon{||s}
+{|A |}Video Game{||s}
+{|A |}Whoopee Cushion{||s}
+{|A |}Blunt Object{||s}
+{|A |}Bowie Kni{fe|fe|ves}
+{|A |}Butter Kni{fe|fe|ves}
+{|A |}Can Opener{||s}
+{|A |}Cattle Prod{||s}
+{|A |}Chain Saw{||s}
+{|A |}Dart{||s}
+{|A |}Hatchet{||s}
+{|A |}Kitchen Kni{fe|fe|ves}
+{|A |}Lobster{||s}
+{|A |}Machete{||s}
+{|A |}Machine Gun{||s}
+{|A |}Meat Cleaver{||s}
+{|A |}Pair{||s} of Scissors
+{|A |}Pea-Shooter{||s}
+{|A |}Platypus{||es}
+{|A |}Rubber Band{||s}
+{|A |}Safety Razor{||s}
+{|A |}Samurai Sword{||s}
+{|A |}Stilleto{||s}
+{|A |}Straight Razor{||s}
+{|An |}Axe{||s}
+{|An |}Electric Razor{||s}
+
+%NOUNPL
+\NOUN/s
+
+%NOUNSING
+\NOUN/a
+
+%CONNECTOR
+and
+for
+to
+from
+
+
+%BANDNAME
+\NOUN \NOUN
+\ADJECTIVE \NOUNPL
+\NOUNPL \CONNECTOR \NOUNPL
+\NOUN and the \NOUNPL
+\NOUNSING for \ADJECTIVE \NOUNPL
+
+%MAIN
+\BANDNAME\!

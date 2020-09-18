@@ -1,0 +1,1976 @@
+\*	SPEW File to Generate National Enquirer Headlines
+\*
+\*	Based very loosely on a headline file by Gregory Smith.
+\*
+\*	This version by Mark A. Feit <feit@era.com> or <...uunet!era!feit>
+\*	            and George Dinwiddie <73210.101@compuserve.com>
+\*
+
+\* ------------------------------------------------------------------
+\*	    LOCALLY-SIGNIFICANT PEOPLE, PLACES AND THINGS
+\* ------------------------------------------------------------------
+
+\* 				Local Males
+%MALEL
+[ERA NAMES DELETED BECAUSE OF HUMOR IMPAIRMENT]
+
+\*				Local Females
+%FEMALEL
+[ERA NAMES DELETED BECAUSE OF HUMOR IMPAIRMENT]
+
+\* 				Local Hangouts
+%PLACEL
+(5)\MALEL's Office
+(5)\FEMALEL's Office
+Arlington
+Burke
+Centreville
+Columbia, Maryland
+Duck, North Carolina
+Fairfax
+J.R.'s Steak House
+Leesburg
+Nags Head
+Norfolk
+Red Hot & Blue
+Ruby Tuesday's
+Shakey's Pizza
+The Concourse
+The Concourse Cafe
+The MicroCFT Development Lab
+The Pentagon
+The Tank
+The Vienna Inn
+Tyson's Corner
+Vienna
+Virginia Beach
+Westwood
+The Westwood Cafe
+Westwood Gazebo
+
+\*				Local Things
+%OBJECTL{as}
+{|a |}Patty Melt{||s}
+{|a |}MicroCFT{||s}
+{|an |}AN-SSQ80/A{||s}
+{|a |}TIDYTIPS{||es}
+{|a |}Cluster Sentinel{||s}
+{|a |}Transputer{||s}
+{|an |}i960{||s}
+{|a |}Cellular Phone{||s}
+\* --- Generic computer-related funny ones
+{|a |}Compiler{||s}
+{|a |}DOS Extender{||s}
+{|an |}Ethernet Cable{||s}
+{|a |}Finite State Automaton{||s}
+{|a |}Linker{||s}
+{|a |}Keyboard{||s}
+{|a |}Macintosh{||es}
+{|a |}Personal Computer{||s}
+{|a |}Sun Workstation{||s}
+{|a |}VAX{||es}
+
+\*				Local Addictions
+%DRUGL
+Big Gulps
+Cherry Slurpees
+Chinese Food
+Coffee
+Computers
+Concourse Cafe Food
+NetWare
+PC-DOS
+Pepperoni Pizza
+Pink Pepto Bismol
+Programming
+Sex
+Spring Water
+Super Big Gulps
+Tea
+Twinkies
+Unix
+Vending Machine Food
+
+\*				Local Afflictions
+%DISEASEL
+Argument Type Mismatches
+Bad Backup Tapes
+Core Dumps
+Dereferenced NULL Pointers
+Floating Pointers
+NULL Pointers
+Non-Reentrent Operating System Calls
+Rabid Magnetic Fields
+Stray Magnetic Fields
+Syntax Errors
+Unexpected Reboots
+Uninitialized Variables
+Unresolved Externals
+Unserviced Interrupts
+a Computer Virus
+a Security Leak
+
+\*				Local Organizations
+%GROUPL
+Bell Atlantic
+CTSO
+DEC
+DIS
+ERA
+Faradyne Systems
+FHWA
+Force Computers
+IBM
+Intel
+Melpar
+Mesa Technology
+Motorola
+Naval Intelligence
+NSA
+Sun Microsystems
+The ERA Softball Team
+The FHWA Demo System Development Team
+
+\*				Local Spacey Types
+%ETL{s}
+Unix Guru{|s}
+Repair M{a|e}n
+DEC Sales Rep{|s}
+DIS Inspector{|s}
+Software Engineer{|s}
+Accountant{|s}
+Government Auditor{|s}
+E-Systems Auditor{|s}
+
+\* ------------------------------------------------------------------
+\*                              GENERIC THINGS
+\* ------------------------------------------------------------------
+
+
+\*				People who contributed to this file
+%CONTRIB
+George Dinwiddie
+Gregory Smith
+Mark Feit
+Paul Antonucci
+
+\* ------------------------------------------------------------------
+\*                                  PEOPLE
+\* ------------------------------------------------------------------
+
+\*				Male Relatives
+%MRELATIVE
+Brother
+Brother-in-Law
+Dad
+Father
+Father-in-Law
+Godfather
+Grandfather
+Heir
+Son
+Uncle
+\FRELATIVE's \MRELATIVE
+\FRELATIVE's \FRELATIVE
+\MSPOUSE
+
+\*				Female Relatives
+%FRELATIVE
+Aunt
+Daughter
+Godmother
+Grandmother
+Granny
+Heiress
+Mom
+Mother
+Mother-in-Law
+Sister
+Sister-in-Law
+\FSPOUSE
+\MRELATIVE's \FRELATIVE
+\MRELATIVE's \MRELATIVE
+
+\*				Any Relative
+%RELATIVE
+\BABY
+(8)\FRELATIVE
+(8)\MRELATIVE
+Babysitter
+Best Friend
+Forked Process
+Worst Enemy
+Evil Twin
+Pet \ANIMAL
+Siamese Twin
+Twin
+
+\*				Female Spouse
+%FSPOUSE
+'Babe'
+'Funny Little Honey'
+'Little Woman'
+'Main Squeeze'
+'Old Lady'
+'Significant Other'
+(5)Wife
+Concubine
+Mistress
+
+\*				Male Spouse
+%MSPOUSE
+'Big Daddy'
+(3)Husband
+(2)Hubby
+'Main Man'
+'Significant Other'
+'Sugar Daddy'
+'Old Man'
+
+\*				Any Spouse
+%SPOUSE
+\FSPOUSE
+\MSPOUSE
+
+\*				Offspring
+%BABY{s}
+(2)Bab{y|ies}
+Bastard{|s}
+(2)Child{|ren}
+(2)Son{|s}
+(2)Daughter{|s}
+Boy{|s}
+Girl{|s}
+\MOSTLY2-Headed Love Child{|ren}
+Love Child{|ren}
+Ankle Biter{|s}
+Carpet Cruiser{|s}
+Rug Rat{|s}
+Munchkin{|s}
+Test Tube Bab{y|ies}
+Yard Ape{|s}
+
+\*				Any Female
+%FEMALE
+(3)\FEMALEL
+\FCELEB
+\FFICTCHAR
+
+\*				Any Male
+%MALE
+(3)\MALEL
+\MCELEB
+\MFICTCHAR
+
+\*				Male Celebs
+%WKMCELEB
+Adnan Kashoggi
+Alan Alda
+Alex Trebek
+Arnold Schwarzenegger
+Bernard Goetz
+Bhagwan Shree-Rajneesh
+Bo Diddley
+Bo Jackson
+Bob Dylan
+Bob Hope
+Bob Uecker
+Burt Reynolds
+Carl Sagan
+Cat Stevens
+Charles Manson
+Dan Quayle
+David Bowie
+David Crosby
+David Letterman
+Don Pardo
+Donald Trump
+Donny Osmond
+Dweezil Zappa
+Ed Meese
+Fidel Castro
+Frank Sinatra
+General Colin Powell
+General Norman Schwarzkopf
+George Bush
+George Carlin
+George Lucas
+H. Ross Perot
+Henry Kissinger
+Hugh Hefner
+James Doohan
+Jeffrey Dahmer
+Jerry Falwell
+Jerry Garcia
+Jerry Lee Lewis
+Jim Bakker
+Jimmy Carter
+Jimmy Swaggart
+Joey Buttafuoco
+John Bobbitt
+John Davidson
+Johnny Carson
+Kenny Rogers
+Lee Iacocca
+Leonard Nimoy
+Lou Albano
+Louis Farrakhan
+Lyndon Larouche
+Magic Johnson
+Manuel Noriega
+Marion Barry
+Matt Groening
+Mel Brooks
+Michael J. Fox
+Michael Jackson
+Mick Jagger
+Mike Tyson
+Mikhail Gorbachev
+Mitch Kapor
+Moammar Khadafy
+Mr. Rogers
+Muammar Quadaffi
+Nelson Mandela
+Ollie North
+Paul Rubens
+Pee Wee Herman
+Prince
+Prince Charles
+Randy Newman
+Rob Lowe
+Robert Zimmerman
+Robin Leach
+Ronald Reagan
+Ross Perot
+Saddam Hussein
+Salman Rushdie
+Sean Penn
+Sly Stallone
+Sly Stone
+Spiro Agnew
+Steve Jobs
+Sylvester Stallone
+The Dalai Lama
+The Pope
+Timothy Leary
+Weird Al Yankovic
+William Donald Schaefer
+William Shatner
+Woody Allen
+Zamfir
+\FCELEB's \MRELATIVE
+
+\*				Male Celebs Long Dead
+%MDEAD
+Abraham Lincoln
+Adolf Hitler
+Alexander The Great
+Atilla the Hun
+Ben Franklin
+Buddha
+Charles Dickens
+Daniel Boone
+General Custer
+George Washington
+Hans Christian Anderson
+Julius Caesar
+Karl Marx
+King Henry VIII
+Leonardo da Vinci
+Michaelangelo
+Moses
+The Czar
+The Marquis de Sade
+The Mighty Duke of York
+Thomas Jefferson
+William Shakespeare
+
+\*				Recently-Dead Male Celebs
+%DMCELEB
+'The King'
+Andy Warhol
+Ansel Adams
+Benny Hill
+Chairman Mao
+Christ
+Duane Allman
+Earl Scheib
+Elvis
+Elvis Presley
+Frank Zappa
+George Allen
+Groucho Marx
+Humphrey Bogart
+JFK
+Jesus
+Jim Henson
+Jim Morrison
+Jimi Hendrix
+Jimmy Hoffa
+John Belushi
+John F. Kennedy
+John Holmes
+John Lennon
+Lawrence Welk
+Lenny Bruce
+Liberace
+Malcom Forbes
+Marty Feldman
+Mel Blanc
+Michael Landon
+Pablo Picasso
+Richard Burton
+Richard Nixon
+Robert Mapplethorpe
+Rock Hudson
+Sam Kinnison
+Sammy Davis, Jr.
+Sid Vicious
+Skip Stephenson
+Stevie Ray Vaughan
+Ted Bundy
+The Ayatollah
+The Shah of Iran
+Vincent Price
+Walt Disney
+Yul Brenner
+\MDEAD
+
+\*				Female Celebreties
+%WKFCELEB
+Amy Fisher
+Ann Landers
+Annette Funicello
+Annie Leibovitz
+Barbara Bush
+Barbara Walters
+Bo Derek
+Bonnie Raitt
+Brigitte Bardot
+Cher
+Cyndi Lauper
+Debbie Gibson
+Diana Ross
+Dolly Parton
+Doris Day
+Dr. Ruth Westheimer
+Elizabeth Taylor
+Elle McPherson
+Fawn Hall
+Fergie
+Gina Lolabrigida
+Goldie Hawn
+Grace Slick
+Imelda Marcos
+Jane Fonda
+Jerry Hall
+Joan Rivers
+Julie Brown
+Kimberly Conrad
+Kitty Kelly
+Lauren Bacall
+Leona Helmsley
+Linda Ronstadt
+Liz Taylor
+Lorena Bobbitt
+Madonna
+Maggie Trudeau
+Marilyn Chambers
+Marla Maples
+Miss Manners
+Moon Unit Zappa
+Nancy Reagan
+Nancy Sinatra
+Paulina Porizkova
+Princess Caroline
+Princess Diana
+Queen Elizabeth
+Rasheeda Moore
+Shirley McLaine
+Sophia Loren
+Tammy Fae Bakker
+Tia Carerre
+Tina Turner
+Vanessa Williams
+Vanna
+Whoopi Goldberg
+Zsa Zsa Gabor
+\MCELEB's \FRELATIVE
+
+\*				Female Celebs Long Dead
+%FDEAD
+Catherine the Great
+Cleopatra
+Delilah
+Helen of Troy
+Joan of Arc
+Julius Caesar's Wife
+Lady Godiva
+Lady Macbeth
+Lot's Wife
+Mary Queen of Scots
+Medea
+Queen Victoria
+The Queen of Sheba
+
+\*				Dead Female Celebs
+%DFCELEB
+\FDEAD
+Bette Davis
+Gilda Radner
+Greta Garbo
+Jackie O
+Janis Joplin
+Karen Carpenter
+Lucille Ball
+Marilyn Monroe
+Marlene Dietrich
+Mary Jo Kopechne
+Mata Hari
+Natalie Wood
+Sharon Tate
+Tokyo Rose
+
+\*				Generic Dead Celeb
+%DCELEB
+\DMCELEB
+\DFCELEB
+
+\*				Generic Dead Person
+%DEAD
+\FDEAD
+\MDEAD
+
+\*				A Male Celeb
+%MCELEB
+\WKMCELEB
+(2)\MALEL
+
+\*				A Female Celeb
+%FCELEB
+\WKFCELEB
+(2)\FEMALEL
+
+\*				Generic Celeb
+%CELEB
+\MCELEB
+\FCELEB
+
+\*				Well-Known Persons
+%WKPERSON
+\CELEB
+\FICTCHAR
+
+\*				Genderless Fictional Characters
+%GFICTCHAR
+Bambi
+Benji
+Bigfoot
+Garfield
+God
+Godzilla
+Hydra
+Opus
+Snoopy
+The Devil
+The Loch Ness Monster
+The Missing Link
+The Tooth Fairy
+
+\*				Male Fictional Characters
+%MFICTCHAR
+Al Bundy
+Barney Rubble
+Bart Simpson
+Batman
+Bilbo Baggins
+Boris Badenov
+Buckwheat
+Bugs Bunny
+Bullwinkle
+Buster Bunny
+Captain Kirk
+Captain Piccard
+Charlie Chan
+Cookie Monster
+Daffy Duck
+Dick Tracy
+Dobie Gillis
+Donald Duck
+Dr. Dolittle
+Dr. No
+Dudley Doright
+Elmer Fudd
+Felix the Cat
+Freddy Kreuger
+Fritz the Cat
+Frodo Baggins
+Gandalf
+George Jetson
+Gilligan
+Godot
+Goldfinger
+Green Lantern
+Gumby
+Homer Simpson
+James Bond
+Jed Clampett
+Kermit the Frog
+Lil Abner
+Maxwell Smart
+Mister Natural
+Norman Bates
+Oscar the Grouch
+Plucky Duck
+Popeye
+Porky Pig
+Quick Draw McGraw
+Roger Rabbit
+Santa Claus
+Spiderman
+Superman
+The Wizard of Oz
+Tom Thumb
+Yogi Bear
+Zippy the Pinhead
+
+\*				Female Fictional Characters
+%FFICTCHAR
+Babs Bunny
+Barbarella
+Barbie Doll
+Betty Boop
+Brenda Starr
+Cinderella
+Little Miss Muffett
+Maggie Simpson
+Marge Simpson
+Mary Poppins
+Minnie Mouse
+Mona Lisa
+Mrs. Thurston Howell III
+Olive Oyl
+Peg Bundy
+Pussy Galore
+Snow White
+The Saint Pauli Girl
+The Wicked Witch of the West
+Thumbelina
+
+\*				Any Fictional Character
+%FICTCHAR
+\GFICTCHAR
+\MFICTCHAR
+\FFICTCHAR
+
+\*				Generic Outer Space Types
+%GET{s}
+Alien{|s}
+Android{|s}
+Being{|s}
+Cyborg{|s}
+Extra-Terrestrial{|s}
+Humanoid{|s}
+Little Green M{an|en}
+M{a|e}n from \SPACEPLACE
+Space Alien{|s}
+Space Being{|s}
+
+\*				Outer Space Types
+%ET{s}
+\GET/&
+(2)\ETL/&
+
+\*				Pseudo-People
+%GHOST
+Boogie Man
+Daemon
+Demon
+Evil Spirit
+Ghost
+Phantom
+Poltergeist
+
+
+\* ------------------------------------------------------------------
+\*                                 OBJECTS
+\* ------------------------------------------------------------------
+
+%GOBJECT{as}
+{|a |}Beer Bottle{||s}
+{|a |}Can{||s} of Tuna Fish
+{|a |}Condom{||s}
+{|a |}Cow Patt{y|y|ies}
+{|a |}Fork{||s}
+{|a |}Gordion Knot{||s}
+{|a |}Great Ball{||s} Of Fire
+{|a |}Junk Bond{||s}
+{|a |}Lamp Shade{||s}
+{|a |}Magazine{||s}
+{|a |}Mind Control Device{||s}
+{|a |}Rubber Duck{y|y|ies}
+{|a |}Slithy Tove{||s}
+{|a |}Spoon{||s}
+{|a |}Video Game{||s}
+{|a |}Whoopee Cushion{||s}
+
+
+%OBJECT{as}
+\GOBJECT/&
+(4)\OBJECTL/&
+
+%WEAPON{a}
+(3)\OBJECT/&
+{|a }Blunt Object
+{|a }Bowie Knife
+{|a }Butter Knife
+{|a }Can Opener
+{|a }Cattle Prod
+{|a }Chain Saw
+{|a }Dart
+{|a }Hatchet
+{|a }Kitchen Knife
+{|a }Machete
+{|a }Machine Gun
+{|a }Meat Cleaver
+{|a }Pair of Scissors
+{|a }Pea-Shooter
+{|a }Rubber Band
+{|a }Safety Razor
+{|a }Samurai Sword
+{|a }Steak Knife
+{|a }Stilleto
+{|a }Straight Razor
+{|a }Swiss Army Knife
+{|an }Axe
+{|an }Electric Knife
+{|an }Electric Razor
+
+%UFFO
+UFO
+Flying Saucer
+Galactic Space Cruiser
+Mother Ship
+Space Cruiser
+Space Ship
+Star Cruiser
+Star Ship
+
+%WKDRUG
+Amphetamines
+Aspirin
+Barbiturates
+Cane Toads
+Cocaine
+Coffee
+Cough Drops
+Crack
+DDT
+Extra-Strength Tylenol
+Grain Alcohol
+Heroin
+Laetrile
+Laughing Gas
+Marijuana
+Milk of Magnesia
+Nitrous Oxide
+No-Doz
+Preparation H
+Sex
+Speed
+Sudafed
+Valium
+Vivarin
+\*Milk of Human Kindness
+
+%DRUG
+\WKDRUG
+(2)\DRUGL
+
+%FRUIT{as}
+{|an |}Apple{||s}
+{|a |}Banana{||s}
+{|a |}Blueberr{y|y|ies}
+{|a |}Cherr{y|y|ies}
+{|a |}Guava{||s}
+{|a |}Grape{||s}
+{|a |}Honeydew Mellon{||s}
+{|a |}Kiwi Fruit{||s}
+{|a |}Lemon{||s}
+{|a |}Lime{||s}
+{|a |}Mango{||es}
+{|a |}Nectarine{||s}
+{|an |}Orange{||s}
+{|a |}Papaya{||s}
+{|a |}Passion Fruit{||s}
+{|a |}Passion Fruit{||s}
+{|a |}Pear{||s}
+{|a |}Peach{||es}
+{|a |}Plantain{||s}
+{|a |}Plum{||s}
+{|a |}Tangerine{||s}
+{|a |}Watermelon{||s}
+
+
+%FOOD{as}
+\FRUIT/&
+Curry Dip
+{|a Bowl of |Bowls of }\FOOD/s
+{|a Cup|Cups} of Coffee
+{|a |}Burrito{||s}
+{|a |}Cow's Tongue{||s}
+{|a |}Doughnut{||s}
+{|a |}Froot Loop{||s}
+{|a |}Fruit Pie{||s}
+{|a |}\FRUIT/ -flavored Fruit Pie{||s}
+{|a |}Ho-Ho{||s}
+{|a |}Roast \ANIMAL/&
+{|a |}Softshell Crab{||s}
+{|a |}Steamed Crab{||s}
+{|a |}Sub Sandwich{||es}
+{|a |}Taco{||s}
+{|a |}Tomato{||es}
+{|a |}Tostada{||s}
+{|a |}Triple Ice Cream Cone{||s}
+{|a |}Tub{||s} of Lard
+{|a |}Twinkie{||s}
+{|a |}Watermelon{||s}
+{|a |}\FRUIT/  Pie{||s}
+{|an Pint of |Pints of }Flied Lice
+{|a |}\FOOD/ -and-\FOOD/  Sandwich{||es}
+{|an |}Enchilada{||s}
+
+
+\* ------------------------------------------------------------------
+\*                        ADJECTIVES & WORD BUILDERS
+\* ------------------------------------------------------------------
+
+%PREFIX
+Iso-
+Meta-
+Neo-
+Paleo-
+Poly-
+Pseudo-
+Quasi-
+Semi-
+
+%SPIRITUAL
+Clairvoyant
+Draconian
+Mystic
+Spiritual
+Telekinetic
+Telepathic
+(3)\PREFIX\SPIRITUAL
+
+%RELIGION
+Agnostic
+Amish
+Atheist
+Baptist
+Buddhist
+Catholic
+Christian
+Druid
+Episcopalian
+Gnostic
+Hare Krishna
+Heathen
+Holy Roller
+Islamic
+Jewish
+Lutheran
+Mennonite
+Methodist
+Muslim
+Mystic
+Nudist
+Presbyterian
+Quaker
+Roman Catholic
+Russian Orthodox
+Shaker
+Superstitious
+Unconscious
+\SPIRITUAL \RELIGION
+\PREFIX\RELIGION
+
+
+\* ------------------------------------------------------------------
+\*                                  PLACES
+\* ------------------------------------------------------------------
+
+%PLACE
+(2)\PLACEL
+\WKPLACE
+
+\* Well-Known places
+%WKPLACE
+Amsterdam
+Aruba
+Atlantis
+Australia
+Baghdad
+Baha California
+Bangkok
+Beirut
+Bloom County
+Bumfuk, Egypt
+Camelot
+Cancun
+Cayman Islands
+Christmas Island
+Cozumel
+Easter Island
+Edinburgh
+England
+Galapagos Island
+Green Acres
+Greenwich Village
+Hawaii
+Highway 61
+Ho Chi Minh City
+Hollywood
+Ipanema Beach
+Jellystone National Park
+Kalamazoo
+Kamanawanaleia
+L.A.
+Land's End
+Lizard Lick, North Carolina
+Lumberton, South Carolina
+Machu Picchu
+Magrathea
+Memphis
+Middle Earth
+Monte Carlo
+Moscow
+Nanda Devi
+Nepal
+Nevada
+New York
+Niagara Falls
+Philadelphia
+Pine Bluff, Arkansas
+Rajneeshpurnam
+Route 66
+San Francisco
+Sesame Street
+St. Croix
+The Black Forest
+The Cone of Silence
+The End Zone of Giant Stadium
+The Inner Sanctum
+The Naked City
+The Sangre de Cristo Mountains
+The Sunny Side of the Street
+The Twilight Zone
+Tienanman Square
+Tierra Del Fuego
+Tijuana
+Timbuktu
+Times Square
+Tintagel Castle
+Tipperary
+Tokyo
+Transylvania
+Trinidad and Tobago
+Tulsa
+Vienna
+Vladivostok
+Waco, Texas
+Waikiki Beach
+Wall Street
+Walla Walla, Wash.
+West Bumfuk, Egypt
+Yosemite
+Your Hometown
+Zanzibar
+\SPACEPLACE
+
+%PLANET
+Earth
+(5)Jupiter
+(5)Mars
+(5)Mercury
+(5)Neptune
+(5)Pluto
+(5)Saturn
+(5)Uranus
+(5)Venus
+
+%SPACEPLACE
+'Out There'
+(4)\PLANET
+Alpha Centauri
+Io
+Outer Space
+Outer Space
+Planet Claire
+Planet Vulcan
+The Asteroid Belt
+The Center of the Galaxy
+The Center of the Universe
+The Death Star
+The Edge of the Galaxy
+The Edge of the Universe
+The Moon
+The Restaurant at the End of the Universe
+The Sun
+The Van Allen Belt
+
+%MADNESS
+Apathetic
+Batty
+Crazed
+Depressed
+Dissolute
+Disturbed
+Drug-Crazed
+Drunken
+Extroverted
+Fanatical
+Freaky
+Goofy
+Hostile
+Insane
+Introverted
+Maniacal
+Manic Depressive
+Neurotic
+Nutty
+Pathetic
+Perverted
+Psychopathic
+Psychotic
+Religious
+Screwy
+Spacey
+Strange
+Suicidal
+Wacky
+Wild
+
+%KILLER{s}
+(2)\KILLERX/&
+\MADNESS \KILLERX/&
+
+%KILLERX{s}
+Killer \ANIMAL/&
+
+%ANIMAL{s}
+Alga{|e}
+Algae Eater{|s}
+Bee{|s}
+Bird{|s}
+Bug{|s}
+Bull{|s}
+Cat{|s}
+Chickadee{|s}
+Clam{|s}
+Cockroach{|es}
+Cow{|s}
+Crab{|s}
+Crocodile{|s}
+Dogg{y|ies}
+Dog{|s}
+Dolphin{|s}
+Elephant{|s}
+Ewok{|s}
+Fish
+Fl{y|ies}
+Gerbil{|s}
+Gnat{|s}
+Goat{|s}
+House Plant{|s}
+Jabberwock{|s}
+Kitten{|s}
+Kitt{y|ies}
+Leopard{|s}
+Lion{|s}
+Lobster{|s}
+Millipede{|s}
+Moose
+M{ous|ic}e
+Octop{us|i}
+Otter{|s}
+Oyster{|s}
+Parameci{um|a}
+Panda{|s}
+Parakeet{|s}
+Parrot{|s}
+Penguin{|s}
+Planaria{n|}
+Puddy Tat{|s}
+Pupp{y|ies}
+Puss{y|ies}
+Seal{|s}
+Shark{|s}
+Snail{|s}
+Snipe{|s}
+Squid{|s}
+Tick{|s}
+Tiger{|s}
+Wasp{|s}
+Whale{|s}
+Wild \ANIMAL/&
+Wombat{|s}
+Worm{|s}
+
+
+%KILL{sd}
+Bl{o|o|e}w{s|s|} Away
+Bump{|s|ed} Off
+Hang{|s|ed}
+Ice{|s|d}
+Kill{|s|ed}
+Maim{|s|ed}
+Murder{|s|ed}
+Mutilate{|s|d}
+Obliterate{|s|d}
+Sho{ot|ots|t}
+Slaughter{|s|ed}
+Spear{|s|ed}
+
+%MOLEST{sd}
+Castrate{|s|d}
+Injure{|s|d}
+Kidnap{|s|ped}
+Knife{|s|d}
+Maim{|s|ed}
+Molest{|s|ed}
+Mug{|s|ged}
+Pound{|s|ed}
+Rape{|s|d}
+Trash{|es|ed}
+\EAT/&
+\KILL/&
+
+%EAT{sd}
+Chew{|s|ed} Up
+Chow{|s|ed} Down On
+Devour{|s|ed}
+Gobble{|s|d}
+Masticate{|s|d}
+{Eat|Eats|Ate}
+{Take|Takes|Took}
+
+%SAY{s}
+Admit{|s}
+Bellow{|s}
+Blurt{|s}
+Claim{|s}
+Coo{|s}
+Cr{y|ies}
+Divulge{|s}
+Howl{|s}
+Insist{|s}
+Reveal{|s}
+Roar{|s}
+Say{|s}
+Screech{|es}
+Scream{|s}
+Shout{|s}
+Shriek{|s}
+Swear{|s}
+Wail{|s}
+Whisper{|s}
+
+%SHOCK
+Amaze
+Befuddle
+Shock
+
+%DOCTOR{s}
+Dentist{|s}
+Doctor{|s}
+Gynecologist{|s}
+Neurologist{|s}
+Pediatrician{|s}
+Opthamologist{|s}
+Optician{|s}
+Optometrist{|s}
+Ph.D{|s}
+Phlebotomist{|s}
+Physician{|s}
+Podiatrist{|s}
+Psychologist{|s}
+Psychiatrist{|s}
+Shrink{|s}
+Veterinarian{|s}
+
+%SCIENTIST{s}
+Astronomer{|s}
+Biologist{|s}
+Computer Scientist{|s}
+Engineer{|s}
+Entomologist{|s}
+Herpetologist{|s}
+Scientist{|s}
+Technician{|s}
+Whiz Kid{|s}
+\DOCTOR/&
+
+%NATIONALITY
+Albanian
+Algerian
+American
+Angolan
+Argentinean
+Australian
+Austrian
+Bahamian
+Belgian
+Bolivian
+Brazilian
+British
+Bulgarian
+Burmese
+Cambodian
+Canadian
+Cherokee
+Chilean
+Chinese
+Colombian
+Congan
+Costa Rican
+Cuban
+Czechoslovakian
+Dominican
+Dutch
+Egyptian
+Ethiopian
+Filipino
+Finnish
+French
+German
+Greek
+Haitian
+Hungarian
+Indian
+Iraqi
+Irish
+Israeli
+Italian
+Jamaican
+Japanese
+Korean
+Kuwaiti
+Lebanese
+Libyan
+Maltese
+Mexican
+Mongolian
+Norwegian
+Pakistani
+Panamanian
+Polish
+Portuguese
+Russian
+Soviet
+Spanish
+Swedish
+Swiss
+Thai
+Turkish
+Vietnamese
+Yugoslavian
+
+%WKDISEASE
+AIDS
+Acne
+Allergies
+Anthrax
+Arthritis
+Athlete's Foot
+Botulism
+Bubonic Plague
+Cancer
+Chicken Pox
+Cooties
+Disentery
+Dry Heaves
+Dylsexia
+Dyslexia
+Flu
+Herpes
+Herpes of the \BODYPART/ 
+Jock Rot
+Laryngitis
+Leprosy
+Malaria
+Male Menopause
+Mange
+Menopause
+Mononucleosis
+Pimples
+PMS
+Psoriasis
+Rabies
+Ricketts
+Scurvy
+Syphillis
+Tapeworms
+Tattoos
+The Heartbreak of Psoriasis
+The Seven Year Itch
+The Willies
+Tuberculosis
+VD
+Water on the \BODYPART/ 
+Warts
+Zits
+a Backache
+a Cold
+a Hangnail
+a Hernia
+a Nosebleed
+a Yeast Infection
+
+%DISEASE
+\DISEASEL
+\WKDISEASE
+
+%NUMBEROF    \* quantities that can end in 'of'; i.e. have nouns following.
+(22)\BIGNUMBER
+(55)\NUMBER
+A Couple of
+A Googol of
+A Gross of
+A Whole Mess of
+Beelyuns and Beelyuns of
+Billions and Billions of
+Dozens of
+Gobs of
+Hundreds of
+Innumerable
+Oodles of
+Some
+
+%BIGNUMBER
+\NUMBER1 Billion \HUNDREDS Million \THOUSANDS
+\NUMBER1 Million \THOUSANDS
+(22)\THOUSANDS
+(22)\HUNDREDS
+
+%THOUSANDS
+(2)\NUMBER1 Thousand \HUNDREDS
+\NUMBER1 Thousand
+
+%HUNDREDS
+(2)\NUMBER1 Hundred \NUMBER
+\NUMBER1 Hundred
+
+%NUMBER
+\NUMBER1
+(2)\NUMBER2
+Twenty-\NUMBER1
+Thirty-\NUMBER1
+Forty-\NUMBER1
+Fifty-\NUMBER1
+Sixty-\NUMBER1
+Seventy-\NUMBER1
+Eighty-\NUMBER1
+Ninety-\NUMBER1
+
+%NUMBER1
+Two
+Three
+Four
+Five
+Six
+Seven
+Eight
+Nine
+
+%MOSTLY2
+(8)Two
+\NUMBER1
+
+%NUMBER2
+Ten
+Eleven
+Twelve
+Thirteen
+Fourteen
+Fifteen
+Sixteen
+Seventeen
+Eighteen
+Nineteen
+
+%COLOR
+Amber
+Ashen
+Aquamarine
+Beige
+Black
+Blue
+Brown
+Burnt Sienna
+Chartreuse
+Cyan
+Dark \COLOR
+Fluorescent Orange
+Gold
+Green
+Grey
+Hot Pink
+Invisible
+Khaki
+Lavender
+Light \COLOR
+Magenta
+Maroon
+Mauve
+Orange
+Paisley
+Pastel
+Pink
+Plaid
+Polka Dot
+Puce
+Puke Green
+Purple
+Raw Umber
+Red
+Silver
+Spotted
+Striped
+Tan
+Turquoise
+Violet
+Yellow
+(5)\COLOR-\COLOR
+
+%PERSON{s}
+Accountant{|s}
+Air Traffic Controller{|s}
+Avon Lad{y|ies}
+Bachelor{|s}
+Bag Lad{y|ies}
+Bean Counter{|s}
+Bonehead{|s}
+Branch Davidian{|s}
+College Professor{|s}
+Construction Worker{|s}
+Disc Jock{ey|ies}
+Dog Catcher{|s}
+Drag Queen{|s}
+Drummer{|s}
+Egghead{|s}
+Engineer{|s}
+Fanatic{|s}
+Flasher{|s}
+French Whore{|s}
+Geek{|s}
+Gigolo{|s}
+Goofball{|s}
+Hairdresser{|s}
+IRS M{a|e}n
+Idiot{|s}
+Jerk{|s}
+Klansm{a|e}n
+M{a|e}n
+Mercenar{y|ies}
+Murderer{|s}
+News Anchor{|s}
+Pan Flutist{|s}
+Photographer{|s}
+Pinhead{|s}
+Playboy Playmate{|s}
+Policem{a|e}n
+Politician{|s}
+Pornographer{|s}
+Postm{a|e}n
+Prostitute{|s}
+Punk{|s}
+Sheriff's Deput{y|ies}
+Sideshow Freak{|s}
+Skinhead{|s}
+Sniper{|s}
+Soldier{|s}
+Spinster{|s}
+Street Walker{|s}
+Stripper{|s}
+Strumpet{|s}
+Student{|s}
+Surfer{|s}
+Transvestite{|s}
+Trollop{|s}
+Tupperware Lad{y|ies}
+Unemployed \PERSON/&
+Wom{a|e}n
+\BABY/&
+\DOCTOR/&
+\ET/&
+\KILLER/&
+\NATIONALITY National{|s}
+\NATIONALITY Student{|s}
+\NATIONALITY \DOCTOR/&
+\NATIONALITY \SCIENTIST/&
+\PREFIX\RELIGION Monk{|s}
+\SCIENTIST/&
+\PREFIX\SCIENTIST/&
+
+%ANYBODY
+(3)\PERSON/ 
+\CELEB
+\FICTCHAR
+
+%AIRCRAFT
+707
+727
+737
+747
+757
+767
+777
+A-6
+Airplane
+Airship
+B-1 Bomber
+B-2 Stealth Bomber
+Blimp
+DC-3
+DC-8
+DC-10
+Dirigible
+F-15
+Fokker F-23
+Glider
+Gooney Bird
+Hang Glider
+Helicopter
+Helium Balloon
+Hot Air Balloon
+Jet
+Jet Fighter
+Learjet
+L-1011
+Stealth Bomber
+Stealth Fighter
+Ultra-Light
+Zeppelin
+\UFFO
+
+%CAR
+AMC
+AMG
+BMW
+Buick
+Chevy
+Chevrolet
+Chrysler
+Convertible
+Corvair
+DeLorean
+Dodge
+Datsun
+Edsel
+Ferrari
+Ford
+Honda
+Impala
+Infiniti
+Isuzu
+Jag
+Jaguar
+Jalopy
+K-Car
+Karmann-Ghia
+Lamborghini
+Lexus
+Limo
+Mazda
+Mercedes
+MG
+Model T
+Morris Mini-Minor
+Nissan
+Olds
+Panterra
+Plymouth
+Porsche
+Range Rover
+Rolls-Royce
+Saturn
+Studebaker
+Subaru
+Toyota
+Volkswagen
+Volvo
+Yugo
+
+%VEHICLE
+\AIRCRAFT
+\CAR
+(3)\GVEHICLE
+
+%GVEHICLE
+Bicycle
+Bulldozer
+Bus
+Car
+Dinghy
+Moped
+Motor Scooter
+Motorcycle
+Muscle Boat
+Pogo Stick
+Roller Skate
+Sail Boat
+Sailboard
+Scooter
+Skateboard
+Surfboard
+Tricycle
+Unicycle
+Yacht
+Zamboni
+
+%SEXTHING
+Cathouse
+Group Grope
+House of Ill Repute
+Love Nest
+Orgy
+
+%WKGROUP
+2 Live Crew
+Abbott and Costello
+Calvin and Hobbes
+Congress
+Corporate America
+Deadheads
+Drug Ring
+Guns 'n' Roses
+Hell's Angels
+Huey, Dewey and Louie
+Kindergarten
+Laurel and Hardy
+Little-League Baseball
+Menudo
+PETA
+Skateboarders
+Teenage Mutant Ninja Turtles
+The Air Force
+The Army
+The B-52s
+The Beatles
+The Blues Brothers
+The Coast Guard
+The Cycle Sluts from Hell
+The Grateful Dead
+The House of Representatives
+The KGB
+The Kremlin
+The Libertarian Party
+The Mafia
+The Marines
+The Military
+The Military Industrial Complex
+The National Football League
+The National Hockey League
+The Navy
+The New Kids on the Block
+The PLO
+The Police
+The Pro-Bowler's Association
+The Professional Golfer's Association
+The Ramones
+The Republican Guard
+The SPCA
+The Screen Actors' Guild
+The Senate
+The Sheriff's Department
+The Shriners
+The Stock Market
+The Village People
+The World Bank
+The \NATIONALITY Government
+The \RELIGION Church
+White House Staff
+\NATIONALITY Hit Squad
+
+%GROUP
+(2)\GROUPL
+\WKGROUP
+
+%OFFICE
+Big Cheese
+Block Chairman
+Buffoon
+Class Clown
+Dog Catcher
+Fearless Leader
+Grand Poobah
+Head Honcho
+Mayor of \PLACE
+\TRASHMAG Editor-In-Chief
+President
+Sheriff
+Speaker of the House
+Supreme Ruler of \SPACEPLACE
+Vice-President
+\DISEASE Poster Child
+\NATIONALITY Ambassador
+\NATIONALITY Premier
+
+
+\*			Body Parts
+%BODYPART{as}
+{|an |}Ankle{||s}
+{|an |}Armpit{||s}
+{|an |}Arm{||s}
+{|an |}Artery{||s}
+{|a |}Brain{||s}
+{|a |}Breast{||s}
+{|a |}Cal{f|f|ves}
+{|an |}Ear{||s}
+{|an |}Eye{||s}
+{|a |}F{oo|oo|ee}t
+{|a |}Gut{||s}
+{|a |}Hair{||s}
+{|a |}Head{||s}
+{|a |}Heart{||s}
+{|a |}Knee{||s}
+{|a |}Leg{||s}
+{|a |}Liver{||s}
+{|a |}Mouth{||s}
+{|a |}Neck{||s}
+{|a |}Nose{||s}
+{|a |}Nostril{||s}
+{|a |}Rear End{||s}
+{|a |}Shoulder{||s}
+{|a |}Solar Plex{u|u|e}s
+{|a |}Spine{||s}
+{|a |}Spleen{||s}
+{|a |}Stomach{||s}
+{|a |}Thigh{||s}
+{|a |}Toenail{||s}
+{|a |}Toe{||s}
+{|a |}Uvula{||s}
+
+
+\*			Operations
+%OPERATION{as}
+{|a |}Double-Bypass{||es}
+{|a |}Triple-Bypass{||es}
+{|a |}\BODYPART/  Amputation{||s}
+{|a |}\BODYPART/  Enlargement{||s}
+{|a |}\BODYPART/  Reduction{||s}
+{|a |}\BODYPART/  Transplant{||s}
+{|an |}Appendectom{y|y|ies}
+{|a |}Lobotom{y|y|ies}
+{|a |}Tooth Extraction{||s}
+{|a |}Root Canal{||s}
+{|a |}'Love Surger{y|y|ies}'
+
+\* ------------------------------------------------------------------
+\*                              THE HEADLINES
+\* ------------------------------------------------------------------
+
+\*			Where SPEW Starts building its output
+%MAIN
+\CONST\!\!
+
+\*			Something to end everything with
+%ENDER
+(5).
+(1)!
+
+
+\*			Who Might Be Involved
+%INVOLVED
+(2)\PHOTO
+(2)
+\!     -- Former \RELATIVE \SAY/s the Awful Truth\ENDER
+\!     -- \CELEB Reveals All\ENDER
+\!     -- \CELEB May Be Involved\ENDER
+\!     -- \CELEB Tells It Like It Is\ENDER
+\!     -- \CELEB Spills Guts\ENDER
+\!     -- \CELEB Reveals The Horrifying Truth\ENDER
+\!     -- \CELEB Denies Involvement\ENDER
+\!     -- "\DCELEB Told Me So," \SAY/s \CELEB\ENDER
+
+\*			The Evidence!
+%PROOF
+(2)
+(2)\PHOTO
+\!     -- \NATIONALITY \SCIENTIST/s Offer Undeniable Proof\ENDER
+\!     -- Independent Laboratory Confirms.
+\!     -- Government Study Confirms.
+\!     -- Study By \GROUP Brings Proof\ENDER
+\!     -- \NATIONALITY \SCIENTIST/s Offer New Evidence\ENDER
+
+\*				Pictures!  We got pictures!
+%PHOTO
+(5)
+\!     -- Exclusive Pictures Inside\ENDER
+\!     -- These Pictures Don't Lie\ENDER
+\!     -- Photographic Evidence Offers Proof\ENDER
+\!     -- \TRASHMAG Photo Exclusive\ENDER
+\!     -- Historic Photos That Will \SHOCK the World\ENDER
+\!     -- Exclusive Photos Taken By \ANYBODY\ENDER
+\!     -- Exclusive Photos Provided By \GROUP\ENDER
+\!     -- Photos Released For the First Time Ever By \GROUP\ENDER
+
+\* 				Trashy Magazines
+%TRASHMAG
+National Enquirer
+Weekly World News
+Star
+Examiner
+Sunday Star Sport
+
+\*				The Headlines
+%CONST
+
+\* --- Celeb. Dirt
+\DCELEB Drew a \BIGNUMBER-Dollar Check \NUMBER Days After Funeral\ENDER
+"I Am The Reincarnation of \FDEAD," \SAY/s \MCELEB\ENDER\PHOTO
+"I Am The Reincarnation of \MDEAD," \SAY/s \FCELEB\ENDER\PHOTO
+"I Saw \DCELEB Alive and Well in \PLACE" \SAY/s \PERSON/ \ENDER
+"I Spoke to \DCELEB Through \FRUIT/a" \SAY/s \PERSON/ \ENDER
+"\CELEB Is Really \ET From \PLANET" \SAY \NATIONALITY \SCIENTIST/s\ENDER
+"\CELEB Is Really \ET From \PLANET" \SAY/s \CELEB\ENDER
+"\FCELEB and I were making love \NUMBER times a day at age \NUMBER," \SAY/s \MCELEB\ENDER
+"\MCELEB and I were making love \NUMBER times a day at age \NUMBER," \SAY/s \FCELEB\ENDER
+"\FCELEB Is Not My \FRELATIVE," \SAY/s \CELEB\ENDER
+"\FCELEB Is Really My \FRELATIVE," \SAY/s \CELEB\ENDER
+"\FCELEB Is the Mother Of My \BABY," \SAY/s \MCELEB\ENDER\INVOLVED
+"\FCELEB Told Me To Marry \FCELEB," \SAY/s \MCELEB\ENDER
+"\FCELEB Told Me To Marry \MCELEB," \SAY/s \FCELEB\ENDER
+"\MCELEB Is Not My \MRELATIVE," \SAY/s \CELEB\ENDER
+"\MCELEB Is Really My \MRELATIVE," \SAY/s \CELEB\ENDER
+"\MCELEB Is the Father Of My \BABY," \SAY/s \MADNESS \PERSON/ \ENDER
+"\MCELEB's \FSPOUSE Had To Know About Us\ENDER" \SAY/s \FCELEB\ENDER
+Lose \NUMBEROF Pounds on \CELEB's Miracle Diet!
+Real Life Ghost Busters Exorcise \GHOST From \CELEB/ 's Home in \PLACE\ENDER
+Shocking New Book Reveals: \DEAD Was Murdered\ENDER
+Shocking Nude Pictures of \CELEB\ENDER
+Travelling To \PLACE In A Stolen \VEHICLE -- \CELEB Tells All\ENDER\PHOTO
+Travelling To \PLACE In \CELEB/ 's Stolen \VEHICLE -- \CELEB Tells All\ENDER\PHOTO
+\CELEB Arrested on \DRUG Charges\ENDER\INVOLVED
+\CELEB Caught Selling \DRUG\ENDER\!   "I Did It For The Thrill, Not The Money\ENDER"
+\CELEB Controls \GROUP From Jail Cell\ENDER
+\CELEB Denies \DRUG Addiction\ENDER
+\CELEB Enters Betty Ford Center for \DRUG Addiction\ENDER
+\CELEB Falls \NUMBER Thousand Feet Out of \AIRCRAFT ... and Survives\ENDER
+\CELEB Is Addicted to \DRUG\ENDER\INVOLVED
+\CELEB Trashes Mansion in \PLACE...  Does \NUMBEROF Dollars Damage\ENDER
+\CELEB Trashes Motel in \PLACE...  Does \NUMBEROF Dollars Damage\ENDER
+\CELEB \MOLEST/d by \ANIMAL/  in \PLACE\ENDER
+\CELEB \SAY/s "My House is Infested With \ANIMAL/s\ENDER"
+\DCELEB Was Killed By \CELEB\ENDER\INVOLVED
+\DEAD's Corpse Missing From Grave in \PLACE\ENDER
+\DMCELEB Was Secret Lover Of \MCELEB, \SAY/s \FCELEB\ENDER
+\FCELEB Files Paternity Suit Against \FCELEB\ENDER\!     -- Claiming Sex Change
+\FCELEB Gives Birth to \MCELEB's \BABY\ENDER
+\FCELEB Gives Birth to \NUMBEROF \BABY/s\ENDER\INVOLVED
+\FCELEB Moves in with \MCELEB... Says His Treatment for \DISEASE Works\ENDER
+\FCELEB Tells Of Night Of Terror With \MCELEB: "He Threatened Me With \WEAPON/a\ENDER"
+\FCELEB Uses Voodoo on Ex-\MSPOUSE -- And It Works!
+\FCELEB Worked Her Way Through College Selling \DRUG\ENDER
+\FCELEB Worked Her Way Through College as a Prostitute\ENDER
+\FCELEB \SAY/s "I \MOLEST/d My \MRELATIVE\ENDER"\!  Her \RELATIVE Denies It\ENDER
+\FCELEB \SAY/s, "Yes, I'm Really \CELEB's Mother\ENDER"
+\FCELEB and \FCELEB Found in Sordid \SEXTHING\ENDER
+\FCELEB's Mother \SAY/s, "She's Not Really My Baby\ENDER"
+\FCELEB's \MSPOUSE Caught Cheating\ENDER\PHOTO
+\FCELEB, \MCELEB and \DCELEB Caught in \DRUG Scandal\ENDER\INVOLVED
+\MCELEB Moves in with \FCELEB... Says Her Treatment for \DISEASE Works\ENDER
+\MCELEB Tells Of Night Of Terror With \FCELEB: "She Threatened Me With \WEAPON/a\ENDER"
+\MCELEB Uses Voodoo on Ex-\FSPOUSE -- And It Works!
+\MCELEB Worked His Way Through College Selling \DRUG\ENDER
+\MCELEB Worked His Way Through College as a Gigolo\ENDER
+\MCELEB \SAY/s "I \MOLEST/d My \FRELATIVE\ENDER"\!  His \RELATIVE Denies It\ENDER
+\MCELEB \SAY/s, "Yes, I'm Really \CELEB's Father\ENDER"
+\MCELEB and \FCELEB Secretly Wed in \PLACE\ENDER Now It's Official\ENDER\PHOTO
+\MCELEB and \FCELEB Seen Together in \PLACE\ENDER "Is It Love?"
+\MCELEB's Fiance \SAY/s, "He \MOLEST/d My \FRELATIVE\ENDER"
+\MCELEB's Mother \SAY/s, "He's Not Really My Baby\ENDER"
+\MCELEB's \FSPOUSE Caught Cheating\ENDER\PHOTO
+\NATIONALITY \SCIENTIST/s Resurrect \DCELEB\ENDER\PHOTO
+\SCIENTIST/s Discover \FCELEB Was Married to \MDEAD in Previous Life\ENDER
+
+\* --- In the Name of Science
+
+Archaeologist Finds \NUMBEROF \OBJECT/s in Egyptian Pyramid\ENDER\!    Proof of Ancient \ET/s
+Eating \FOOD/s Can Give You \DISEASE, \SAY \NATIONALITY \DOCTOR/s\ENDER
+\DOCTOR Implants \OBJECT That Prevents \DISEASE\ENDER
+\FICTCHAR Is For Real\ENDER\!     -- \NATIONALITY \SCIENTIST/s Come Up With Undeniable Proof
+\FRUIT/s Have \SPIRITUAL Powers, \SAY \NATIONALITY \SCIENTIST/s\ENDER\PROOF
+\NATIONALITY \DOCTOR/s Find Miracle Cure For \DISEASE: \FOOD/s\ENDER
+\NATIONALITY \SCIENTIST Measures The Distance to \SPACEPLACE: \HUNDREDS Feet, \NUMBER1 and One-Half Inches\ENDER
+\NATIONALITY \SCIENTIST/s Discover Lost City of \PLACE\ENDER
+\NATIONALITY \SCIENTIST/s Produce \SPIRITUAL \KILLERX Girl\ENDER
+\PERSON/ 's Bizarre Claim: "\NATIONALITY \SCIENTIST/s Planted \OBJECT/a In My Head\ENDER"
+\SCIENTIST Clones \CELEB\ENDER\PHOTO
+
+\* --- Space Is Da Place
+
+\ANYBODY Builds \UFFO From Old \CAR -- And it Flies\ENDER\PHOTO
+"Killer \KILLER/s From \PLANET \MOLEST/d My \BABY" \SAY/s \PERSON\ENDER\PHOTO
+"\ET/s From \PLANET Gave Me \DISEASE" \SAY/s \ANYBODY\ENDER
+"\ET/s From \PLANET Landed in My Yard and Performed \NUMBEROF \OPERATION/s On My \BABY/ " \SAY/s \ANYBODY\ENDER
+"\ET/s From \PLANET Landed In My Garden And \EAT/d \NUMBEROF \FRUIT/s" \SAY/s \ANYBODY\ENDER
+"\ET/s From \PLANET Took Me For a Ride In Their \VEHICLE" \SAY/s \PERSON/ \ENDER
+"\ET/s From \SPACEPLACE \MOLEST/d Me In Their \VEHICLE" \SAY/s \PERSON/ \ENDER
+\PREFIX\RELIGION Monks Capture The Devil\ENDER\!  Amazing Photos Show What He Really Looks Like\ENDER
+\RELIGION Monks Report \UFFO Sighting in \PLACE\ENDER\!     "They Came From \SPACEPLACE\ENDER"
+\UFFO from \SPACEPLACE Captured by \GROUP; Crew Held Under Guard\ENDER\PHOTO
+
+\* --- Murder Most Foul
+
+"I Killed My \RELATIVE With \WEAPON/a" -- \PERSON/ \ENDER
+Amazing \MADNESS \KILLERX From \PLACE\ENDER
+In \MADNESS Rage, \PERSON/  \KILL/s \NUMBER, Self\ENDER
+Jury Acquits Notorious \WEAPON Murderer From \PLACE\ENDER
+\HUNDREDS-pound Man Crushes \FSPOUSE to Death -- While Making Love\ENDER
+\HUNDREDS-pound Woman Rolls Over in Bed -- Crushes \MSPOUSE to Death\ENDER
+\NUMBEROF Years For \MADNESS \WEAPON Murderer. "I Would Do It Again" \SAY/s \CELEB\ENDER
+\PERSON/  Goes Berserk And \KILL/s \NUMBEROF \PERSON/s With \WEAPON\ENDER
+\PERSON/  \KILL/s \NUMBEROF \PERSON/s With \WEAPON, Then Is Acquitted By Jury\ENDER
+\PERSON/ , Stoned on \DRUG, \MOLEST/s \NUMBEROF \PERSON/s\ENDER
+\BABY \KILL/s \PERSON While Performing \OPERATION/\ENDER  "It Was an Accident," \SAY/s \RELATIVE
+
+\* --- Misc. Headlines
+
+"Does \FICTCHAR Exist?"\PROOF
+"\DCELEB Died From Eating \FOOD/s," \SAY/s \ANYBODY\ENDER\PROOF
+"I Was \CELEB's Sexual Slave," \SAY/s \ANYBODY\ENDER
+"I Was \GROUP's Sexual Slave," \SAY/s \ANYBODY\ENDER
+"\FICTCHAR \MOLEST/d My \BABY," \SAY/s \PERSON/ \ENDER
+"\FICTCHAR and \CONTRIB Helped Work On These Headlines," \SAY/s \ANYBODY\ENDER
+Amazing Healing \BABY Cures \DISEASE and \DISEASE With a Touch\ENDER
+\ANYBODY's Amazing Diet beats \DISEASE with \FOOD/s and \FOOD/s\ENDER
+Amazing \NUMBER-Pound \PERSON/ \ENDER
+Couple Flees From Talking \ANIMAL\ENDER
+Elvis Cashes Check \NUMBEROF Days After His Funeral\ENDER\PROOF
+Elvis Seen In \PLACE\ENDER
+\ANYBODY Runs for \OFFICE -- Endorsed by \GROUP\ENDER
+\ANYBODY \MOLEST/s \NUMBEROF \PERSON/s in Drunken Rampage\ENDER
+\BABY Born With \OBJECT/a\ENDER Proof of Reincarnation\ENDER
+\BABY \MOLEST/d by Pet \ANIMAL\ENDER\PHOTO
+\FEMALE Gives Birth to \COLOR Baby\ENDER
+\FEMALE Gives Birth to \NUMBER1 Pound \ANIMAL\ENDER
+\FEMALE Stabs \MSPOUSE \NUMBEROF Times, Claims It Was an Accident\ENDER
+\FEMALE Trades \RELATIVE For \VEHICLE -- And It's Legal\ENDER
+\MALE Has Sex Change -- Gives Birth to \BABY\ENDER
+\MALE \KILL/s \RELATIVE For Being Too Fat\ENDER
+\NATIONALITY Mother Gives Birth to \NUMBEROF \BABY/s At Once\ENDER
+\NATIONALITY Weight-Loss Clinic: \!     Lose \NUMBEROF Pounds in \NUMBER Days Eating \FOOD/s\ENDER
+\NUMBER Living Clones of \DEAD Seen In \PLACE\ENDER\PHOTO
+\NUMBER-Year-Old \MALE Marries \NUMBER-Year-Old \FEMALE\ENDER/
+\NUMBER1-Year-Old \BABY Uses \WEAPON to Perform Emergency \OPERATION/  on \RELATIVE\ENDER
+\PERSON Bursts Into Flames While Sunbathing!
+\PERSON Finds \THOUSANDS-Dollar Diamond in \FRUIT\ENDER
+\PERSON Finds \THOUSANDS-Dollar Diamond in \OBJECT\ENDER
+\PERSON Forced to Beg for \DRUG\ENDER
+\PERSON/  Sees Face Of \WKPERSON In \FOOD/a\ENDER
+\PERSON/  Struck By Lightning -- \NUMBEROF Times\ENDER
+\RELATIVE Trades \BABY For \DRUG\ENDER
+%%

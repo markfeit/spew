@@ -1,0 +1,15 @@
+\* A short test for use in developing new versions
+\* of spew.
+
+ignored
+also ignored
+ignored with comment \* Here's the comment.
+
+%NONSENSE{as}
+ foo
+  bar  
+   baz
+
+%MAIN
+\NONSENSE\!
+

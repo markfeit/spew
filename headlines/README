@@ -1,0 +1,44 @@
+This is a set of files for use with Greg Smith's ``Spew'' program.
+Spew is in comp.sources.games Volume 1 and comp.sources.misc Volume
+10.  If you don't have a copy of the archives on something like the
+Prime Time Freeware CD, it's available for FTP or UUCP from
+uunet.uu.net in /usenet/comp.sources.misc/volume10/spew.Z.
+
+Without further adiew, here's what's in this distribution:
+
+	headline	The big one.  Spews gobs of different headlines
+			and has room at the top for some local
+			customizations.  Lots of fun to run through
+			filters like ``jive.''  Some definitions make
+			use of tricks like recursion.
+
+	c-code		Spews syntactically-correct C code.  It won't
+			compile, but after a run through indent(1)
+			it's good for a laugh or two.
+
+	gibberish	Invent a new language!  Amuse your friends!
+			Confuse your enemies!
+
+	hawaiian	Similar to gibberish, but spews random text
+			using rules based on the Hawaiian language.
+			(Checked out by someone	who speaks Hawaiian, I
+			might add!)
+
+	talkshow 	What's on Oprah today
+
+	buzzword	A few things to put in your next report to
+			management
+
+
+If you have additions/suggestions/flames/whatever for any of these
+files, please feel free to mail them to me at the address below.  I
+try to grab a headline or two whenever I'm in the grocery store, so
+look for periodic updates.
+
+Enjoy!
+						- Mark
+
+ ................................. .................................
+: Mark A. Feit             KD4TAJ : Internet: feit@era.com          :
+: Engineering Research Associates : USENET: ...!uunet!era!feit      :
+ ................................. .................................

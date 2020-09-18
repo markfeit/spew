@@ -1,0 +1,23 @@
+\*
+\* Hundu-esque Name Generator
+\*
+\* Based on or shamlessly stolen from http://dipnames.tripod.com/
+\*
+
+%WILLWORD
+Uh
+What
+Huh
+
+%WILLPHRASE
+Yo
+Kick it
+Check it out
+
+%WILLLINE
+(5)\WILLWORD \WILLWORD \WILLWORD \WILLWORD
+\WILLPHRASE
+
+
+%MAIN
+\WILLLINE\!\WILLLINE\!\WILLLINE\!\WILLLINE\!\WILLLINE\!

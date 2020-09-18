@@ -1,0 +1,17 @@
+\* Four-Letter Words
+
+
+%LETTER
+B
+L
+R
+F
+L
+
+%SEQUENCE
+\LETTER
+(20)\LETTER\SEQUENCE
+
+%MAIN
+B\SEQUENCE\!
+

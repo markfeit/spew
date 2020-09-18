@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+
+
+<spewtemplate name="Buzzword">
+
+  <category name="adjective">
+    <item>Complete</item>
+    <item>Total</item>
+    <item>Overall</item>
+    <item>Company-wide</item>
+    <item>Corporate-Approved</item>
+  </category>
+
+  <category name="topic">
+    <item>Artificial Intelligence</item>
+    <item>Memory Management</item>
+    <item>Disk Allocation</item>
+    <item>Workstation</item>
+    <item>Networking</item>
+    <item>Management</item>
+  </category>
+
+%NOUN{as}
+{|a |}Scheme{||s}
+{|a |}Strateg{y|y|ies}
+{|an |}Environment{||s}
+{|a |}Plan{||s}
+{|an |}Outlook{||s}
+
+
+%MAIN
+(4)Heavy
+Light
+
+</spewtemplate>

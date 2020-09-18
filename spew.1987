@@ -1,0 +1,1467 @@
+Path: seismo!ut-sally!husc6!mit-eddie!uw-beaver!tektronix!tekgen!tekred!games-request
+From: games-request@tekred.TEK.COM
+Newsgroups: mod.sources.games
+Subject: v01i007:  spew - spew National Enquirer type headlines
+Message-ID: <1110@tekred.TEK.COM>
+Date: 22 Apr 87 22:01:09 GMT
+Sender: billr@tekred.TEK.COM
+Lines: 1457
+Approved: billr@tekred.TEK.COM
+
+Submitted by: Gregory Smith <greg@csri.toronto.edu>
+Mod.sources.games: Volume 1, Issue 7
+Archive-name: spew
+
+	[I added the Makefile and ability to define the default file
+	 in the Makefile rather than the source code.  Compiled and
+	 ran fine on our 4.3bsd Vax.  -br]
+
+#! /bin/sh
+# This is a shell archive.  Remove anything before this line, then unpack
+# it by saving it into a file and typing "sh file".  To overwrite existing
+# files, type "sh file -c".  You can also feed this as standard input via
+# unshar, or by typing "sh <file", e.g..  If this archive is complete, you
+# will see the following message at the end:
+#		"End of archive 1 (of 1)."
+# Contents:  README MANIFEST Makefile headline manual spew.c
+# Wrapped by billr@tekred on Wed Apr 22 14:46:14 1987
+PATH=/bin:/usr/bin:/usr/ucb ; export PATH
+if test -f README -a "${1}" != "-c" ; then 
+  echo shar: Will not over-write existing file \"README\"
+else
+echo shar: Extracting \"README\" \(3471 characters\)
+sed "s/^X//" >README <<'END_OF_README'
+XA while back, mark@pixar posted a program to generate random 'National
+XEnquirer' headlines.  This program worked from a 'rules file' which was a text
+Xfile describing how the headlines would be constructed.
+X
+XMark's program was, unfortunately, highly non-portable, and rather than
+Xtry to salvage it I wrote a new interpreter for the same text file.
+XSince then I have added several features, and thus greatly changed the
+Xformat of the rules file. Credits go to mark for the original concept
+Xand much of the text in the supplied rulesfile ( which I have cleaned up
+Xand added to ).
+X
+XThis shar includes the National Enquirer rules-file 'headline', the source to
+Xthe 'spew' interpreter, a 'manual' for the format of the control file, and
+Xthis READ_ME file. I believe this program might actually be useful, for such
+Xtasks as generating huge quantities of input text for testing programs.  ( I
+Xmay have a file which generates random syntactically-correct C code, but I
+Xwon't admit to it!! :-). The format of the file allows a wide variety of text
+Xformats to be generated - it almost works like Yacc in reverse.
+XAnyway, things like 'festoon' could certainly be coded as 'spew' rulesfiles,
+Xand could thus be sent to the net as a 'spew' source.
+XSorry I haven't written a proper manual page, but...
+X
+XUSAGE:
+X	spew [n]        generate one [or n] random thing(s) from default
+X			rulesfile. If the environment variable RULESFILE
+X			is set, the file-name is taken from there; other-
+X			wise a compiled-in name is used ( see Installation
+X			instructions ).
+X
+X	spew [n] file   Same, but use the given file as input.
+X
+X	spew -c
+Xor	spew -c file    'Compress' the default or given file to the
+X			standard output (the compressed format is unreadable
+X			and must be redirected). 'Compress' is a misnomer
+X			because the file gets about 20% larger. The
+X			'compressed' format is more efficient for spew to
+X			operate from, though. Spew automatically knows
+X			whether it is reading a compressed or human-readable
+X			rulesfile.  Examples:
+X		spew headline			<< make a headline
+X		spew -c headline >headline.comp	<< make compressed file
+X		spew headline.comp		<< make another headline
+X
+X	spew -d
+X	spew -d file    Read the default or given file, and dump the
+X			resulting internal structure to the std output.
+X			The format is pretty easy to figure out. It is
+X			somewhat different when the input file is in
+X			'compressed' format. DUMP must be #define'd
+X			to enable this feeping creature.
+X
+X
+XINSTALLATION INSTRUCTIONS:
+XThe file spew.c contains some clearly labeled #defines which you may
+Xwant to play with. It should be possible to port to non-Un*x systems
+Xjust by changing these. The most important ones to start with are:
+X
+XDEFFILE which is the default rules file to use. Set this to the path
+X	of your 'headline' file and then you can just put 'spew' in your
+X	.login.
+XENVIRON which is set to "RULESFILE" in the release package. If this
+X	environment variable is set, it is assumed to be a default file-name
+X	over-riding the DEFFILE. You may want to change this.
+X	Remove the #define if you don't have getenv().
+XSETRAND	
+XROLL(n)	define the former to a STATEMENT (not an expression) which
+X	initializes your random number generator. Define the latter as
+X	an expression which gives a random integer in the range 0<=i<n.
+X	'n' will be an integer from 1 to several hundred.
+X	The supplied definitions may or may not work well, depending
+X	on your machine (here we have a VAX 11/780 4.2BSD, works ok
+X	on a Sun too ).
+X
+END_OF_README
+if test 3471 -ne `wc -c <README`; then
+    echo shar: \"README\" unpacked with wrong size!
+fi
+# end of overwriting check
+fi
+if test -f MANIFEST -a "${1}" != "-c" ; then 
+  echo shar: Will not over-write existing file \"MANIFEST\"
+else
+echo shar: Extracting \"MANIFEST\" \(294 characters\)
+sed "s/^X//" >MANIFEST <<'END_OF_MANIFEST'
+X   File Name		Archive #	Description
+X-----------------------------------------------------------
+X MANIFEST                  1	This shipping list
+X Makefile                  1	
+X README                    1	
+X headline                  1	
+X manual                    1	
+X spew.c                    1	
+END_OF_MANIFEST
+if test 294 -ne `wc -c <MANIFEST`; then
+    echo shar: \"MANIFEST\" unpacked with wrong size!
+fi
+# end of overwriting check
+fi
+if test -f Makefile -a "${1}" != "-c" ; then 
+  echo shar: Will not over-write existing file \"Makefile\"
+else
+echo shar: Extracting \"Makefile\" \(183 characters\)
+sed "s/^X//" >Makefile <<'END_OF_Makefile'
+X# Simple Makefile for spew
+X
+XHEADLNS = \"/usr/games/headline\"
+X
+XCFLAGS = -O -DDEFFILE=$(HEADLNS)
+X
+Xspew:	spew.c
+X	cc $(CFLAGS) -o spew spew.c
+X
+Xinstall: spew
+X	cp spew headline /usr/games
+END_OF_Makefile
+if test 183 -ne `wc -c <Makefile`; then
+    echo shar: \"Makefile\" unpacked with wrong size!
+fi
+# end of overwriting check
+fi
+if test -f headline -a "${1}" != "-c" ; then 
+  echo shar: Will not over-write existing file \"headline\"
+else
+echo shar: Extracting \"headline\" \(8105 characters\)
+sed "s/^X//" >headline <<'END_OF_headline'
+X\* National Enquirer Headlines.
+X\*
+X%SPIRITUAL
+XSpiritual
+XClairvoyant
+XTelepathic
+XTelekinetic
+X%RELATIVE
+XFather
+XUncle
+XGrandfather
+XGrandmother
+XSon
+XDaughter
+XMother
+XAunt
+XPostman
+XAccountant
+XDog Catcher
+XIRS Man
+XHairdresser
+XAvon Lady
+X%WEAPON{a}
+X{|a }Meat Cleaver
+X{|a }Hatchet
+X{|a }Machete
+X{|a }Phased Plasma Rifle
+X{|a }Chain Saw
+X{|a }Samurai Sword
+X{|an }Axe
+X{|a }Machine Gun
+X{|an }Anti-tank weapon
+X\*{\FRUIT|\FRUIT/a}
+X\FRUIT/&
+X%GHOST
+XGhost
+XEvil Spirt
+XPoltergist
+XDemon
+XPhantom
+XBogie Man
+X%RELIGION
+XBuddist
+XMethodist
+XBaptist
+XIslamic
+XMoslem
+XRoman Catholic
+XAtheist
+X%UFFO
+XUFO
+XFlying Saucer
+XSpace Ship
+XMother Ship
+XSpace cruiser
+XUSS enterprise
+XGalactic Space Cruiser
+X%PLANET
+XPluto
+XMars
+XVenus
+XMercury
+XNeptune
+XSaturn
+XJupiter
+XThe Moon
+X%ET{s}
+XExtra-Terrestrial{|s}
+XE.T.{|'s}
+XSpace Alien{|s}
+XBeing{|s}
+XSpace Being{|s}
+XCyborg{|s}
+XHumanoid{|s}
+XAlien{|s}
+X%DRUG
+XHeroin
+XLSD
+XAngel Dust
+XCoke
+XCocaine
+XCrack
+XQuaaludes
+XAmphetamines
+X%FRUIT{as}
+X{|a |}Mango{||es}
+X{|a |}Tomato{||es}
+X{|a |}Banana{||s}
+X{|a |}Cherr{y|y|ies}
+X{|an |}Apple{||s}
+X{|a |}Plum{||s}
+X{|a |}Pear{||s}
+X{|an |}Orange{||s}
+X{|a |}Tangerine{||s}
+X{|a |}Lemon{||s}
+X{|a |}Lime{||s}
+X%MADNESS
+XCrazed
+XDrug-Crazed
+XInsane
+XManic Depressive
+XNeurotic
+XPsychotic
+XPsychopathic
+XDevoted
+XReligious
+XFanatical
+XPathological
+X%KILLER{s}
+X(2)\KILLERX/&
+X\MADNESS \KILLERX/&
+X%KILLERX{s}
+X\FRUIT/&
+XGreat White Shark{|s}
+XTerminator{|s}
+XEwok{|s}
+XWombat{|s}
+XBee{|s}
+XWasp{|s}
+XWhale{|s}
+XShark{|s}
+XLion{|s}
+XDolphin{|s}
+XElephant{|s}
+XWorm{|s}
+XClam{|s}
+XKitten{|s}
+XLobster{|s}
+XTiger{|s}
+XLeopard{|s}
+XPanda{|s}
+XCrocodile{|s}
+X%MCELEB
+XRonald Reagan
+XFrank Sinatra
+XMichael Jackson
+XPrince
+XMick Jagger
+XDonny Osmond
+XLou Albano
+XSylvester Stallone
+XSean Penn
+XBob Dylan
+XDavid Letterman
+XJohnny Carson
+XMuammar Quadaffi
+XMoammar Khadafy
+XKenny Rogers
+XBurt Reynolds
+XJohn Davidson
+XRichard Nixon
+XPrince Charles
+XGeorge Lucas
+X%FCELEB
+XPrincess Diana
+XQueen Elizabeth
+XNancy Reagan
+XLinda Ronstadt
+XMaggie Trudeau
+XLiz Taylor
+XTina Turner
+XDolly Parton
+XCher
+XJane Fonda
+XEva Gabor
+XJoan Rivers
+XMadonna
+XCindi Lauper
+X%BABY{s}
+XBab{y|ies}
+XChild{|ren}
+XSon{|s}
+XDaughter{|s}
+X%FDEAD\* female persons long dead
+XCleopatra
+XJoan of Arc
+XLady Godiva
+XQueen Victoria
+XThe Queen of Sheba
+X%DFCELEB\* dead female 'celebrities'
+XMarilyn Monroe
+XJanis Joplin
+X(4)\FDEAD
+X%MDEAD\* male persons long dead
+XAtilla the Hun
+XKing Henry VIII
+XAbraham Lincoln
+XGeorge Washington
+XMoses
+X%DMCELEB\* dead male celebs
+X(3)Elvis
+XJimi Hendrix
+XJim Morrison
+XJohn F. Kennedy
+XBing Crosby
+XJohn Lennon
+XJFK
+XGroucho Marx
+XHarry Chapin
+X\MDEAD
+X%DCELEB
+X\DMCELEB
+X\DFCELEB
+X%DEAD
+X\FDEAD
+X\MDEAD
+X%EAT{sd}
+X{eat|eats|ate}
+Xkidnap{|s|ped}
+X{take|takes|took}
+Xkill{|s|ed}
+Xdevour{|s|ed}
+Xmaim{|s|ed}
+Xinjure{|s|d}
+Xrape{|s|d}
+X%SAY{s}
+XSay{|s}
+XReveal{|s}
+X\*Admit{|s}
+XClaim{|s}
+XInsist{|s}
+X\*Warn{|s}
+X%DOCTOR{s}
+XDoctor{|s}
+XPsychologist{|s}
+XPsychiatrist{|s}
+XPhysician{|s}
+XNeurologist{|s}
+XDentist{|s}
+XPediatrician{|s}
+XVetrinarian{|s}
+XOptician{|s}
+X%SCIENTIST{s}
+XScientist{|s}
+X\DOCTOR/&
+XChemist{|s}
+XPhysicist{|s}
+XMeta-physicist{|s}
+XEngineer{|s}
+XComputer Scientist{|s}
+XProfessor{|s}
+XTechnician{|s}
+XWhiz Kid{|s}
+XBrain Boff{|s}
+XAI Expert{|s}
+XPattern Recognition Researcher{|s}
+X%NATIONALITY
+XRussian
+XSoviet
+XBritish
+XPolish
+XFrench
+XBelgian
+XSwiss
+XGerman
+XSpanish
+XMexican
+XUkranian
+XAmerican
+XCanadian
+XAlbanian
+XAustralian
+XChinese
+XJapanese
+X%DISEASE
+XHerpes
+XAIDS
+XFlu
+XLeprosy
+XVD
+Xa Backache
+XChicken Pox
+XMalaria
+XLaryngitis
+Xa Nosebleed
+XTuberculosis
+XCancer
+X%FICTCHAR
+XSanta Claus
+XBigfoot
+XSnow White
+XGod
+XBhudda
+XMary Poppins
+XThe Loch Ness Monster
+XYogi Bear
+XJames Bond
+XThe Wicked Witch of the West
+XThe Wizard of Oz
+XCaptain Kirk
+XThe Tooth Fairy
+XKermit the frog
+XBatman
+XSuperman
+XSpiderman
+X%KILL{sd}
+XKill{|s|ed}
+XMurder{|s|ed}
+XMaim{|s|ed}
+XSlaughter{|s|ed}
+XMutilate{|s|d}
+XSho{ot|ots|t}
+XMug{|s|ged}
+X%NUMBER
+X\NUMBER1
+X(2)\NUMBER2
+XTwenty-\NUMBER1
+XThirty-\NUMBER1
+XForty-\NUMBER1
+XFifty-\NUMBER1
+XSixty-\NUMBER1
+XSeventy-\NUMBER1
+XEighty-\NUMBER1
+XNinety-\NUMBER1
+X%NUMBER1
+XTwo
+XThree
+XFour
+XFive
+XSix
+XSeven
+XEight
+XNine
+X%NUMBER2
+XTen
+XEleven
+XTwelve
+XThirteen
+XFourteen
+XFifteen
+XSixteen
+XSeventeen
+XEighteen
+XNineteen
+X%FOOD{a}
+X{|a }Taco
+X(5)\FRUIT/&
+X{|an }Enchilada
+X{|a }Burrito
+X{|a }Watermelon
+X{|a }Triple Ice Cream Cone
+X{|a }Tostada
+X%PERSON{s}
+X\KILLER/&
+XFootball player{|s}
+X{Man|Men}
+XWom{an|en}
+XTV Personalit{y|ies}
+XGame Show Host{|s}
+XPolitician{|s}
+X\SCIENTIST/&
+X\DOCTOR/&
+X\NATIONALITY \SCIENTIST/&
+X\NATIONALITY \DOCTOR/&
+XUnemployed \SCIENTIST/&
+XStudent{|s}
+XAir Traffic Controller{|s}
+X\NATIONALITY Student{|s}
+X\ET/&
+X%AIRCRAFT
+XAirplane
+XHelicopter
+XAirship
+XHot Air Balloon
+XHang Glider
+XHelium Balloon
+XUFO
+XJet Fighter
+X747
+XDC-10
+X%CELEB
+X\MCELEB
+X\FCELEB
+X%PLACE
+XRedwood City
+XAustralia
+XNevada
+XAustin, Texas
+XMagrathea
+XOuter Space
+XMemphis
+XEngland
+XSan Francisco
+XCastro Street
+XSan Jose
+XL.A.
+XNew York
+XOrlando, Florida
+XMissouri
+XMiddle Earth
+XThe Shire
+XBarsoom
+XPlanet Vulcan
+XFremont Airport
+XTokyo
+XTransylvania
+XTimes Square
+XWall Street
+XSan Rafael
+XIsrael
+XBeirut
+XMordor
+XBBC television center
+XDr. Who's Tardis
+XStalingrad
+XMoscow
+XAmsterdam
+XManchester
+XEdinburgh
+XRed Square
+XKremlin
+XMimico
+XHollywood
+XDaytona Beach
+XSalt Lake City
+XMississauga
+XMajorca
+XBangkok
+XMonte Carlo
+XLisbon
+XBarrie
+XNirvana
+X%MAIN
+X\CONST.\!
+X%INVOLVED
+X.\! -- \CELEB Reveals All
+X.\! -- \CELEB May Be Involved
+X%PROOF
+X\PHOTO
+X\PHOTO
+X.\! -- \NATIONALITY \SCIENTIST/s Offer Undeniable Proof
+X%PHOTO
+X.\! -- Exclusive Pictures Inside
+X.\! -- Photographic Evidence Offers Proof
+X.\! -- National Enquirer Photo Exclusive
+X%CONST
+X"Killer \KILLER/s From \PLANET \EAT/d My \BABY" \SAY/s \CELEB\PHOTO
+X"\CELEB Is Really \ET From \PLANET" \SAY/s \CELEB
+X"\CELEB Is Really \ET From \PLANET" \SAY \NATIONALITY \SCIENTIST/s
+X\MCELEB and \FCELEB Secretly Wed in \PLACE, It's Official\PHOTO
+XEating \FRUIT/s Can Give You \DISEASE, \SAY \NATIONALITY \DOCTOR/s
+X"\ET/s From \PLANET Gave Me \DISEASE" \SAY/s \CELEB
+X"\FICTCHAR is for real".\! -- \NATIONALITY \SCIENTIST/s come up with undeniable proof
+X"\MCELEB is really my father", \SAY/s \CELEB
+X"\FCELEB is really my mother", \SAY/s \CELEB
+X\NATIONALITY \SCIENTIST/s discover lost city of \PLACE
+X\CELEB \KILL/s \NUMBER \PERSON/s in drunken rampage
+X\PERSON, stoned on \DRUG, \KILL/s \NUMBER \PERSON/s
+X\CELEB Falls \NUMBER thousand feet out of \AIRCRAFT ... and survives
+X"\ET/s From \PLANET Landed In My Garden And \EAT/d \NUMBER \FRUIT/s" \SAY/s \CELEB
+X\FCELEB Gives birth to \NUMBER \BABY/s\INVOLVED
+X\RELIGION Monks report \UFFO Sighting in \PLACE\! "They Came From \PLANET!"\PROOF
+XReal Life Ghost Busters Exorcise \GHOST from \CELEB/ 's home in \PLACE
+X\BABY \KILL/d by Pet \KILLER\PHOTO
+XAmazing \MADNESS \KILLERX from \PLACE
+X"I Chopped My \RELATIVE To Death With \WEAPON/a" -- \PERSON
+X\PERSON Goes Berserk And \KILL/s \NUMBER \PERSON/s With \WEAPON
+X\FCELEB Tells Of Night Of Terror With \MCELEB. "He Threatened Me With \WEAPON/a"
+X\MCELEB Tells Of Night Of Terror With \FCELEB. "She Threatened Me With \WEAPON/a"
+X\FRUIT/s Have \SPIRITUAL Powers, \SAY \NATIONALITY \SCIENTIST/s\PROOF
+X\PERSON Sees Face Of \FICTCHAR In \FOOD/a
+X"Elvis Died From Eating \FRUIT/s", \SAY/s \CELEB\PROOF
+X\NATIONALITY \SCIENTIST/s Produce \SPIRITUAL \KILLER Girl
+X\PERSON \KILL/s \NUMBER \PERSON/s With \WEAPON,\!Then Is Acquitted By Jury
+X\NUMBER Years For \MADNESS \WEAPON Murderer. "I Would Do It Again" Says \CELEB
+X\PERSON Struck By Lightning -- \NUMBER Times
+XJury Acquit Notorious \WEAPON Murderer From \PLACE
+X\MCELEB and \FCELEB Seen Together in \PLACE. "Is It Love?"
+X\PERSON/ 's Bizarre Claim: "\NATIONALITY \SCIENTIST/s Planted Mind Control Device In My Head"
+X"Does \FICTCHAR Exist?" \NATIONALITY \SCIENTIST/s Offer New Evidence
+XTravelling To \PLACE In A Stolen \AIRCRAFT -- \CELEB Tells All\PHOTO
+X"\FICTCHAR \EAT/d My \BABY", \SAY/s \PERSON
+X"\MCELEB is the Father Of My \BABY", \SAY/s \MADNESS \PERSON
+X"\FCELEB is the Mother Of My \BABY", \SAY/s \MCELEB\INVOLVED
+X\FCELEB Files Paternity Suit Against \FCELEB -- Claiming Sex Change
+X"I Am The Reincarnation of \FDEAD", \SAY/s \FCELEB
+X"I Am The Reincarnation of \MDEAD", \SAY/s \MCELEB
+X\SCIENTIST/s Discover \FCELEB Was Married to \MDEAD in Previous Life
+X"I spoke to \DCELEB through \FRUIT/a" \SAY/s \PERSON
+X"I Saw \DCELEB Alive and Well in \PLACE" \SAY/s \PERSON
+X\NATIONALITY \SCIENTIST/s resurrect \DCELEB\PROOF
+XIn \MADNESS Rage, \PERSON \KILL/s \NUMBER, Self
+X"\CELEB Is Addicted to \DRUG"\PROOF
+X%%
+END_OF_headline
+if test 8105 -ne `wc -c <headline`; then
+    echo shar: \"headline\" unpacked with wrong size!
+fi
+# end of overwriting check
+fi
+if test -f manual -a "${1}" != "-c" ; then 
+  echo shar: Will not over-write existing file \"manual\"
+else
+echo shar: Extracting \"manual\" \(4505 characters\)
+sed "s/^X//" >manual <<'END_OF_manual'
+XINPUT FILE FORMAT:
+X
+XThe file is a series of class definitions followed by an end
+Xmarker. The end marker is a line containing only "%%".
+X
+XA class definition begins with a line containing '%' followed by a class
+Xname. Class names can be any length and can consist of any combination
+Xof upper and lower case letters, and numbers.
+X
+XThe lines following are instances of the class, one per line. When a
+Xclass is invoked, one of these is picked at random. Most characters in
+Xthe line are just copied to the output. The newline at the end is not
+Xcopied. An instance may be continued onto the next line by ending the
+Xline with '\'. There is a limit of 1000 bytes on the total size of an
+Xinstance.  An instance may begin with '%' if it is escaped: '\%'. A
+Xnewline may be written as '\!'. A backslash may be written as '\\'.
+X
+XThe following is a simple rules-file that prints out either 'foo'
+Xor bar, followed by a carriage-return:
+X
+X%MAIN
+Xfoo\!
+Xbar\!
+X%%
+X
+XThe program generates a random instance of the class 'MAIN', which in
+Xthis case selects 'foo' or 'bar', with a 50-50 chance. A newline is
+Xappended.
+X
+X	WEIGHTS
+X
+XTo give 'foo' a 90% chance of happening, you can assign weights:
+X
+X%MAIN
+X(9)foo\!
+Xbar\!
+X%%
+X
+XThe weight of 'bar' is 1 by default. If an instance is to begin with '('
+Xit must be escaped, or given an explicit weight:
+X
+X\(animal)
+X(1)(vegetable)
+X
+X	INVOCATION
+X
+XClasses are normally invoked by writing their name immediately after a
+Xbackslash. Below is a rules-file which is equivalent to the foo-bar
+Xexample:
+X
+X%MAIN
+X\word\!
+X%word
+X(9)foo
+Xbar
+X%%
+X
+XIn this case, the class 'word' outputs either 'foo' or 'bar', and
+Xthe newline is appended after the invocation in 'MAIN'.
+X
+XIf you wish to immediately follow a class invokation by a letter or a number,
+Xyou must write it followed by a slash and a space:
+X
+X%MAIN
+X\word/ bar\!
+X%word
+Xfoo
+Xbar
+X%%
+X
+XThe above outputs either 'foobar' or 'barbar'. This method must also
+Xbe used if the invokation is to be immediately followed by a slash.
+X
+X	VARIANTS
+X
+XA class may be defined with variants, and may then be invoked with
+Xvariants. The 's' variant defined for the 'fruit' class below
+Xallows correct plurals to be generated:
+X
+X%fruit{s}
+Xapple{|s}
+Xcherr{y|ies}
+Xpear{|s}
+Xmango{|es}
+X%MAIN
+XOne \fruit and two \fruit/s.\!
+X%%
+X
+XThe variant tag is a single letter or number. In an invocation, the
+Xclass name is followed by a slash which is followed by the tag. Every
+Xclass has a 'null' variant (tagged by a space) by default (thus the "/ "
+Xnotation).
+X
+XIn the class definition line, the class name is followed by a list
+Xof variant tags in curly brackets. The order of the tags is
+Xsignificant.
+X
+XIn an instance definition, variants may be created with the following
+Xnotation:
+X	{ <null-variant-text> | <1st-variant-text> | <2nd-variant-text }
+X
+XWhen a class is invoked with a null tag, or with a blank tag, the
+Xtext before the first '|' is used. If the first tag is used in the
+Xinvocation (i.e. the first tag listed in {}'s in the class definition),
+Xthe text between the first and second |'s is used, and so forth.  All
+Xtext not in {}'s is copied regardless of the tag used.
+X
+XThere are normally as many |'s in these as there are tags defined.
+XIf there are too many tags, the excess ones select null strings, and
+Xif there are too many |'s, the excess strings are redundant.
+X
+XThe '{' character, if required literally,  must always be escaped
+Xoutside the selector construction: '\{', even when no variants are
+Xdefined in a class. The '|' and '}' characters must likewise be
+Xescaped inside a constructor.
+X
+XInvocations may appear in a selector, but cannot span a selector.
+XI.e. you cannot select between invoking 'catwalk' and 'catfish' by
+X
+X	\cat{walk|fish}
+X
+XYou must use {\catwalk|\catfish}.
+X
+XFinally, there is the & tag which may be used in an invocation and
+Xselects the same tag letter (or number) which the invoking
+Xclass was invoked with:
+X
+X%food{s}
+X\fruit/&			<--- this is the same as
+X{\fruit|\fruit/s}		<--- this.
+X
+XMAIN is initially invoked with the null tag (although it can be invoked
+Xrecursively with other tags).
+X
+XHere is a class with multiple tags that generates irregular verbs:
+X
+X%verb{sd}
+X{eat|eats|ate}
+X{be|is|was}
+X{see|sees|saw}
+Xlook{|s|ed}
+Xf{ind|inds|ound}
+X%%
+X
+XThus \verb/d generates a past-tense verb.
+X
+X	COMMENTS:
+X
+XAt any point, '\*' may appear on a line and the rest of the line
+Xis ignored. Blank lines are ignored completely ( as are lines
+Xbeginning in \* ).
+XEmpty instances must therefore be given an explicit weight of one:
+X
+X%AllOrNothing\*	50% chance, 'All', or nothing.
+XAll
+X(1)
+X
+END_OF_manual
+if test 4505 -ne `wc -c <manual`; then
+    echo shar: \"manual\" unpacked with wrong size!
+fi
+# end of overwriting check
+fi
+if test -f spew.c -a "${1}" != "-c" ; then 
+  echo shar: Will not over-write existing file \"spew.c\"
+else
+echo shar: Extracting \"spew.c\" \(13924 characters\)
+sed "s/^X//" >spew.c <<'END_OF_spew.c'
+X/*
+X * SPEW.C
+X */
+X#ifndef lint
+Xstatic char *cpr[]={
+X"  Copyright 1987 Greg Smith",
+X"  Permission is granted to freely use and distribute this software",
+X"provided this notice is left attached and no monetary gain is made."
+X};
+X#endif
+X#include <stdio.h>
+X#include <ctype.h>
+X#include <strings.h>
+Xextern char *malloc();
+Xchar *my_alloc();
+Xextern int atoi();
+Xchar *save();
+X#define TRUE 1
+X#define FALSE 0
+X#define MAGIC 4		/* distinguish compressed file from normal */
+X
+X/*--------------- system configuration ------------------*/
+X
+X/* define some parameters */
+X
+X#define MAXCLASS 300		/* max # of classes */
+X#define MAXLINE 256		/* max size of input line */
+X#define MAXDEF 1000		/* max # bytes in a definition */
+X
+X/* Define the default rulesfile */
+X
+X#ifndef DEFFILE
+X# define DEFFILE "headline"
+X#endif
+X
+X/* Define the environment variable which is to be interrogated for
+X   name of rules file before DEFFILE is used. Delete this to
+X   remove the code that calls getenv() */
+X
+X#define ENVIRON "RULESFILE"
+X
+X/* Define the random number generator */
+X
+Xextern long getpid();
+Xextern int rand(), srand();
+X	/* SETRAND must be complete statement: note semicolon */
+X#define SETRAND (void)srand((int) getpid() );
+X	/* ROLL(n) returns integer 0..n-1 */
+X#define ROLL(n) ((((long)rand()&0x7ffffff)>>5)%(n))
+X
+X/* Enable '-d' dump debug option by defining DUMP */
+X#define DUMP
+X
+X/*---------------------------------------------------*/
+X
+XFILE *InFile;
+X
+Xtypedef struct def_struct{
+X	int cumul;			/* cumulative weights */
+X	char *string;			/* string which defines it */
+X	struct def_struct *next;	/* link to next */
+X} defn;
+Xdefn *process();
+X/*
+X * within a definition, names of subdefinitions are bracketed in BSLASH
+X * and SLASH chars. The whole definition ends with a '\0'.
+X * The SLASH character is always follwed by a variant tag - default is ' '.
+X */
+X#define BSLASH '\\'
+X#define SLASH  '/'
+X#define VBAR	 '|'
+X
+Xtypedef struct{
+X	int weight;	/* total weight of definitions in class */
+X	defn *list;	/* list of them */
+X	char *name;	/* name of this class */
+X	char *tags;	/* pointer to list of tags */
+X} class;
+X
+Xclass * Class;	/* pointer to array of class records */
+Xchar *NullTags = " ";	/* default tags ( shared ) */
+Xint Classes;	/* number of them */
+Xint HowMany = 1;
+Xint CompIn = FALSE;	/* is input file in compressed format? */
+Xint CompMain;		/* class # of MAIN class when compressed */
+X
+Xchar InLine[MAXLINE];
+X
+Xmain(argc, argv )
+Xint argc;
+Xchar **argv;
+X{
+X	char *fname;
+X	char main_class[20];
+X	int i, c_flag = FALSE;
+X#ifdef DUMP
+X	int d_flag = FALSE;
+X#endif DUMP
+X#ifdef ENVIRON
+X	extern char *getenv();
+X	fname = getenv( ENVIRON );
+X#else
+X	fname = NULL;
+X#endif ENVIRON
+X
+X	while( argc > 1 ){
+X		if( isdigit(*argv[1]) ){
+X			HowMany = atoi(*++argv);
+X			--argc;
+X		}else if( strcmp( argv[1], "-c") == 0 ){
+X			c_flag = TRUE; 	/* 'compress' option */
+X			--argc;
+X			++argv;
+X#ifdef DUMP
+X		}else if( strcmp( argv[1], "-d" )== 0 ){
+X			d_flag = TRUE;	/* 'dump' option */
+X			--argc;
+X			++argv;
+X#endif DUMP
+X		}else break;
+X	}
+X	if( argc > 1 ) fname = argv[1];
+X	if (fname == NULL ) fname = DEFFILE;
+X	InFile = fopen( fname, "r" );
+X	if( InFile == NULL ){
+X		fprintf( stderr, "Can\'t open: %s\n", fname );
+X		exit(1);
+X	}
+X	init();
+X#ifdef DUMP
+X	if( d_flag ){
+X		dump();
+X		exit(0);
+X	}
+X#endif DUMP
+X	if( c_flag ){
+X		compress();
+X	}else{
+X		if( CompIn ) sprintf( main_class, "%d/ ", CompMain);
+X		else	     strcpy( main_class, "MAIN/ ");
+X		for(i=0; i<HowMany; ++i) display(main_class,' ');
+X	}
+X	exit(0);
+X}
+X
+Xinit(){
+X	int c;
+X
+X	SETRAND		/* spin random number gen */
+X	c = getc( InFile );	/* is compressed? */
+X	CompIn = ( c== MAGIC );	/* set flag */
+X	if( CompIn ){
+X		readcomp();	/* read compressed version */
+X	}else{
+X		ungetc(c, InFile );
+X		readtext();
+X	}
+X}
+Xreadtext(){
+X	register class *cp;
+X	register defn *dp;
+X	defn **update;
+X	int clcomp();
+X
+X	Class = (class *)my_alloc( (unsigned)(MAXCLASS * sizeof(class)) );
+X	Classes = 0;
+X
+X	cp = Class;
+X	readline();
+X	if( InLine[0]!='%'){
+X		fprintf( stderr,"Class definition expected at: %s\n", InLine);
+X		exit(1);
+X	}
+X	while( InLine[1] != '%' ){
+X		if( Classes == MAXCLASS ){
+X			fprintf(stderr,"Too many classes -- max = %d\n", MAXCLASS);
+X			exit(1);
+X		}
+X		setup( cp );		/* set up the class struct */
+X		readline();
+X		if( InLine[0] == '%' ){
+X			fprintf( stderr, "Expected class instance at: %s\n", InLine);
+X			exit(1);
+X		}
+X		update = &(cp->list);	/* update pointer */
+X		do{
+X			dp = process();
+X			*update = dp;
+X			cp->weight += dp->cumul;	/* add new stuff */
+X			dp->cumul = cp->weight;		/* set breakpoint */
+X			update = &(dp->next);
+X		}while( readline(), InLine[0]!= '%' );
+X		++Classes;		/* count them */
+X		++cp;
+X		*update = NULL;
+X	}
+X	qsort( (char*)Class, Classes, sizeof( class ), clcomp);
+X}
+X/*
+X * display is given a class name ( delimited by SLASH, not '\0' ),
+X * and will (1) find its class descriptor, by calling lookup
+X * (2) pick a definition  (3) output that definition, and
+X * recursively display any definitions in it, and convert any escapes.
+X * The variant tag after the SLASH is used to pick out the appropriate
+X * variants. If that variant tag is '&', the tag 'deftag' is used, which
+X * is the active variant of the containing activation.
+X */
+Xdisplay(s,deftag)
+Xchar *s;
+Xint deftag;
+X{
+X	register class *cp;
+X	register defn *dp;
+X	register char *p;
+X	class *lookup();
+X	int i,variant,incurly;
+X	register int c,writing;
+X
+X	if( CompIn ){		/* input is compressed */
+X		cp = &Class[ atoi(s) ];		/* explicit class # */
+X	}else{
+X		cp = lookup(s);
+X		if( cp == NULL ) {		/* none found */
+X			printf("???");
+X			while( *s != SLASH ) putchar( *s++ );
+X			printf("???");
+X			return;
+X		}
+X	}
+X	c = index(s,SLASH)[1];		/* get variant tag */
+X	if( c != '&' ) deftag=c;	/* use given tag */
+X	p = index(cp->tags, deftag);		/* look it up */
+X	if(p == NULL ){
+X		variant = 0;
+X		printf("??/%c??", deftag );
+X		deftag = ' ';		/* for passing as deftag */
+X	}else variant = p - cp->tags;
+X
+X	i = ROLL( cp->weight );
+X	dp = cp->list;
+X	while(dp->cumul <= i){	/* pick one based on cumul. weights */
+X		dp = dp->next;
+X	}
+X
+X	incurly = 0;		/* not in curlies */
+X	writing = 1;		/* writing */
+X	p = dp->string;		/* this is the string */
+X	for(;;)switch(c = *p++){
+X		case '\0': return;
+X		case BSLASH:
+X			if(( c = *p++) == '\0' ) return; /* ?? */
+X			else if( c == '!' ){
+X				 if(writing)putchar('\n'); /* \! = newline */
+X			}else if( isalnum(c) ){	/* reference */
+X				if(writing)display(p-1,deftag);  /* recurse */
+X				while( *p!=SLASH )++p;
+X				p += 2;		/* skip variant tag */
+X			}else{
+X				if(writing) putchar(c);
+X			}
+X			break;
+X		case '{':
+X			if( !incurly ){
+X				incurly = 1;
+X				writing = (variant == 0 );
+X			}else{
+X				if( writing )putchar('{');
+X			}
+X			break;
+X		case VBAR:
+X			if( incurly ){
+X				writing = ( variant == incurly++ );
+X			}else{
+X				putchar(VBAR);
+X			}
+X			break;
+X		case '}':
+X			if( incurly ){
+X				writing = 1;
+X				incurly = 0;
+X			}else putchar('}');
+X			break;
+X		default:
+X			if( writing) putchar(c);
+X	}
+X}
+Xclass *
+Xlookup( str )		/* delimited by SLASH, not '\0' */
+Xchar *str;
+X{
+X	int first, last, try, comp;
+X	int namecomp();
+X
+X	first = 0;
+X	last = Classes-1;
+X	while( first <= last ){
+X		try = (first+last)>>1;
+X		comp = namecomp( str, Class[try].name );
+X		if( comp == 0 ) return &Class[try];
+X		if( comp > 0 ) first = try+1;
+X		else last = try-1;
+X	}
+X	return NULL;
+X}
+Xint namecomp(a,b)	/* 'a' is delim. by SLASH, 'b' by NULL */
+Xregister char *a,*b;
+X{
+X	register int ac;
+X	for(;;){
+X		ac = *a++;
+X		if(ac == SLASH ) ac = '\0';
+X		if( ac < *b ) return -1;
+X		if( ac > *b++ ) return 1;
+X		if( ac == '\0' ) return 0;
+X	}
+X}
+Xreadline(){
+X	register char *p;
+X	do{
+X		if( fgets( InLine, MAXLINE, InFile ) == NULL ){
+X			InLine[0] = InLine[1] = '%';
+X			InLine[2] = '\0';	/* create EOF */
+X		}else if( (p=rindex( InLine, '\n'))!= NULL ) *p = '\0';
+X		p = InLine;
+X		while( (p = index( p, BSLASH )) != NULL ){
+X			if(p[1] == '*' ){
+X				*p = 0;	/* kill comment */
+X				break;
+X			}else ++p;
+X		}
+X	}while( InLine[0] == '\0' );
+X}
+X
+Xint clcomp(a,b)			
+Xregister class *a,*b;
+X{
+X	if( a==b) return 0;
+X	return strcmp( a->name, b->name );
+X}
+Xchar *save(str)
+Xchar *str;
+X{
+X	register char *p;
+X	p = my_alloc( (unsigned)((strlen(str)+1)*sizeof(char)));
+X	return strcpy(p,str);
+X}
+X/*
+X * setup a class record. The 'class' line is in InLine.
+X */
+Xsetup(cp)
+Xregister class *cp;
+X{
+X	char temp[100];
+X	register char *p,*p2;
+X
+X	p = &InLine[1];		/* point after the % */
+X	while( *p == ' ' )++p;
+X	if( !isalnum(*p) ) goto baddec;
+X	p2 = temp;
+X	do *p2++ = *p++; while( isalnum(*p));
+X	*p2 = '\0';
+X	cp->weight = 0;		/* save the name of it */
+X	cp->name = save( temp );
+X	cp->list = NULL;
+X	cp->tags = NullTags;	/* by default */
+X	for(;;)switch(*p++){
+X	case '\0':
+X		return;	/* all done; */
+X	case ' ':
+X		break;		/* allowed those */
+X	case '{':		/* tags list */
+X		if( cp->tags  != NullTags ) goto baddec; /* already */
+X		p2 = temp;
+X		*p2++ = ' ';	/* provide null tag */
+X		while(*p!='}'){
+X			if( !isalnum(*p)) goto baddec;
+X			*p2++ = *p++;
+X		}
+X		++p;	/* junk rh brace */
+X		*p2 = 0;
+X		cp->tags = save(temp);
+X		break;
+X	default: goto baddec;
+X	}
+X  baddec:
+X	fprintf(stderr,"Bad class header: %s\n", InLine );
+X	exit(1);
+X}
+X/*
+X * create a 'processed' version of the InLine, and return a pointer to
+X * the definition. The 'cumul' field is temporarily used to hold the
+X * assigned weight of the line.
+X */
+Xdefn *process(){
+X	static char stuff[ MAXDEF ];
+X	register char *p,*pout;
+X	register defn *dp;
+X	register int c;
+X
+X	dp = (defn *) my_alloc( (unsigned) sizeof( defn ));
+X
+X	p = InLine;
+X	pout = stuff;
+X	if( *p == '(' ){		/* get a weight */
+X		while(*++p ==' ');	/* scan */
+X		if(!isdigit(*p)) goto badweight;
+X		c = *p - '0';
+X		while(isdigit(*++p)) c = c*10 + (*p - '0' );
+X		while( *p == ' ')++p;
+X		if( *p != ')') goto badweight;
+X		++p;
+X		dp->cumul = c;
+X	}else{
+X		dp->cumul = 1;	/* default weight */
+X	}
+X	while((c = *p++)!='\0')switch(c){
+X	case BSLASH:
+X		*pout++ = BSLASH;
+X		if( isalnum(*p)){	/* is a ref */
+X			do{ *pout++ = *p++;
+X			}while( isalnum(*p));
+X			*pout++ = SLASH;		/* delimit */
+X			if( *p == SLASH ){	/* get variant char */
+X				++p;
+X				if( !isalnum(*p)&& *p!= ' ' && *p!= '&' ){
+X					*pout++ = ' ';
+X				}else *pout++ = *p++;
+X			}else *pout++ = ' ';
+X		}else{
+X			*pout++ = *p;
+X			if( *p!= '\0'){
+X				 ++p;
+X			}else{
+X				--pout;	/* delete spurious '\' */
+X				readline();	/* get new line */
+X				p = InLine;	/* point to it */
+X			}
+X		}
+X		break;
+X	default:
+X		*pout++ = c;
+X	}
+X	*pout = '\0';
+X	dp->string = save( stuff );
+X	return dp;
+X
+X  badweight:
+X	fprintf(stderr, "Bad line weight: %s\n", InLine );
+X	exit(1);
+X	/*NOTREACHED*/
+X}
+X#ifdef DUMP
+Xdump(){
+X	register class *cp;
+X	register defn *dp;
+X	register int i;
+X	for( i=0, cp=Class; i<Classes; ++cp,++i ){
+X		if( CompIn)
+X			printf("%d, {%s} %d:\n",i ,cp->tags, cp->weight );
+X		else
+X			printf("%s, {%s} %d:\n", cp->name,cp->tags, cp->weight );
+X		for( dp = cp->list; dp!=NULL; dp=dp->next ){
+X			printf("(%d)%s\n",dp->cumul, dp->string );
+X		}
+X	}
+X}
+X#endif DUMP
+X
+Xchar *my_alloc(n)
+Xunsigned n;
+X{
+X	register char *p;
+X	p = malloc( n );
+X	if( p==NULL ){
+X		fprintf(stderr, "Out Of Memory\n");
+X		exit(1);
+X	}
+X	return p;
+X}
+X
+X/*
+X * write the file to the standard output in compressed form, prepending
+X * the MAGIC byte for identification.
+X */
+Xcompress(){
+X	register class *cp;
+X	register int i;
+X
+X	putchar( MAGIC );
+X	putw( Classes, stdout );	/* write the number of classes */
+X	putw( -Classes, stdout );	/* write this to make sure */
+X
+X	if( !CompIn ){
+X		cp = lookup("MAIN/ ");		/* get main */
+X		if( cp == NULL ){
+X			fprintf(stderr, "MAIN undefined\n");
+X			exit(1);
+X		}
+X		CompMain = cp - Class;
+X	}
+X	putw( CompMain, stdout );
+X	cp = Class;
+X	i  = Classes;
+X	while(i--) comp1(cp++);
+X}
+X/*
+X * write a 'class' record in compressed format
+X */
+Xcomp1(cp)
+Xregister class *cp;
+X{
+X	register char *p;
+X	register defn *dp;
+X	register int n;
+X
+X	putw( cp->weight, stdout );	/* write total weight */
+X	p = cp->tags;
+X	if( strcmp(p,NullTags) != 0 )	/* special case " " -> "" */
+X		fputs( p, stdout );		/* write tags */
+X	putchar(0);			/* delimiter */
+X	n = 0;
+X	dp = cp->list;
+X	while( dp!= NULL ){
+X		++n;		/* count the defs */
+X		dp = dp->next;
+X	}
+X	putw( n, stdout );	/* write the count of them */
+X	dp = cp->list;
+X	while( dp != NULL ){
+X		compdef(dp);
+X		dp = dp->next;	/* compress them */
+X	}
+X}
+Xcompdef(dp)
+Xregister defn *dp;
+X{
+X	register char *p;
+X	register int c;
+X	putw( dp-> cumul , stdout );	/* write its cumul weight */
+X	p = dp->string;
+X	while( (c = *p++) != '\0' ){
+X		if( c==BSLASH){
+X			if(!CompIn && isalnum(*p) ){	/* a ref */
+X				class *cp;
+X				cp = lookup(p);		/* find it */
+X				if( cp == NULL ){
+X					fprintf( stderr, "Undefined class: ");
+X					while( *p != SLASH ) fputc( *p++, stderr);
+X					fputc('\n', stderr );
+X					exit(1);
+X				}else{
+X					printf("%c%d", BSLASH, cp-Class );
+X					while( *p != SLASH ) ++p;
+X				}
+X			}else{		/* is escape seq */
+X				putchar( BSLASH );
+X				putchar( *p++ );
+X			}
+X		}else{
+X			putchar(c);
+X		}
+X	}
+X	putchar(0);
+X}
+X
+X/*
+X * readcomp reads the compressed format of the file into core.
+X * the MAGIC char has been read already.
+X */
+Xreadcomp(){
+X	register class *cp;
+X	register int i;
+X	Classes = getw( InFile );
+X	if( Classes <= 0 || getw( InFile ) + Classes != 0 )
+X		badfile();	/* format check */
+X	CompMain = getw( InFile );		/* read that next */
+X	Class = (class*) my_alloc( (unsigned)(Classes*sizeof(class)) );
+X	for( i= Classes, cp = Class; i--; ++cp)readcclass(cp);
+X}
+X
+Xreadcclass(cp)
+Xregister class *cp;
+X{
+X	register int n;
+X	register defn *dp;
+X	defn **dput;
+X
+X	char store[MAXDEF];	/* for tags */
+X	cp->weight = getw( InFile );
+X	instring(store,MAXDEF);
+X	cp->tags = ( store[0] == '\0' )? NullTags: save( store );
+X	n = getw( InFile );
+X	if( n<=0 ) badfile();
+X	dput = &(cp->list);	/* link on here */
+X	while(n--){
+X		dp = (defn *)my_alloc( (unsigned) sizeof( defn));
+X		*dput = dp;
+X		dp->cumul = getw( InFile );
+X		instring(store, MAXDEF );
+X		dp->string = save( store );
+X		dput = &(dp->next);
+X	}
+X	*dput = NULL;		/* last one */
+X}
+X
+Xinstring( where, how_many )
+Xregister char *where;
+Xregister int how_many;
+X{
+X	register int c;
+X	do{
+X		c = getc( InFile );
+X		if( c == EOF ) badfile();
+X		*where++ = c;
+X		if( c== '\0' ) return;
+X	}while(--how_many);
+X	badfile();
+X}
+Xbadfile(){
+X	fprintf(stderr,"Bad file format\n");
+X	exit(1);
+X}
+END_OF_spew.c
+if test 13924 -ne `wc -c <spew.c`; then
+    echo shar: \"spew.c\" unpacked with wrong size!
+fi
+# end of overwriting check
+fi
+echo shar: End of archive 1 \(of 1\).
+cp /dev/null ark1isdone
+MISSING=""
+for I in 1 ; do
+    if test ! -f ark${I}isdone ; then
+	MISSING="${MISSING} ${I}"
+    fi
+done
+if test "${MISSING}" = "" ; then
+    echo You have unpacked all 1 archives.
+    rm -f ark[1-9]isdone
+else
+    echo You still need to unpack the following archives:
+    echo "        " ${MISSING}
+fi
+##  End of shell archive.
+exit 0

@@ -1,0 +1,438 @@
+#!/usr/bin/python
+#
+# spew - Generate random tabloid-style headlines.
+#
+# The original version of this program was written by Greg Smith and
+# appeared in comp.sources.games volume 1 and comp.sources.misc
+# volume 10.  A copy of Greg's program and his original file may be
+# found in ftp://ftp.uu.net/usenet/comp.sources.misc/volume10/spew.Z.
+#
+#
+# Usage:  spew [-a] [-d] [-f filename] [num]
+#
+#    -a     Analyze the input file and print a few statistics about it.
+#           This option is mutually-exclusive of -d.
+#
+#    -p     Print a nicely sorted, formatted and indented version
+#           of what was read in.  THIS DOES NOT PRESERVE COMMENTS.
+#           This option is mutually-exclusive of -a.
+#
+#    -f     The file from which headlines should be read.  This
+#           defaults to whatever's in the RULESFILE environment
+#           variable if it is defined, or "headline" if not.  The
+#           standard input may be selected with a hyphen.
+#
+#    num    The number of headlines to be spewed.  The default is
+#           one.  This is ignored if -a or -d are in force.
+#
+#
+
+
+import getopt
+import os
+import random
+import re
+import string
+import sys
+
+# -----------------------------------------------------------------------------
+
+def die(fmt, *args):
+    print fmt.format(*args)
+    sys.exit(1)
+
+# -----------------------------------------------------------------------------
+
+class HeadlineFileReader:
+    """Reads a headline file a line at a time with possible pushback"""
+
+    def __init__(self, path):
+        self.file = open(path, 'r')
+        self.pushed = []
+
+    def __del__(self):
+        if self.file is not None:
+            self.file.close()
+
+    def line(self):
+        """Returns the next usable line from file"""
+
+        # Pushed-back lines go first
+        if self.pushed:
+            return self.pushed.pop(0)
+
+        if self.file is None:
+            return None
+
+        while True:
+            line = self.file.readline()
+
+            if not line:
+                self.file.close()
+                self.file = None
+                return None
+
+            # Remove comments ("\*" to EOL) and leading/trailing whitespace
+            line = re.sub('\\\\[*].*$', '', line)
+            line = line.strip(string.whitespace)
+
+            if line is '':
+                continue
+
+            line = re.sub('\\\\!', '\n', line)
+            return line
+
+        assert False, 'Code should not be reached.'
+
+
+    def pushback(self, string):
+        """Pushes a string back as if it were unread."""
+        self.pushed.append(string)
+
+
+
+# -----------------------------------------------------------------------------
+
+
+class Segment:
+
+    # TODO: This class needs to be abstract
+
+    def expand(self, expander, amp_arg):
+        pass
+
+
+class SegmentLiteral (Segment):
+
+    """Literal string segment of an item"""
+
+    def __init__(self, string):
+        self.string = string
+
+    def expand(self, expander, select_segment):
+        return self.string
+
+
+class SegmentSelected (Segment):
+
+    """Multi-selected literal segment (e.g., {|a|})"""
+
+    def __init__(self, selections):
+        self.selections = selections
+
+    def expand(self, expander, select_segment):
+        return self.selections[select_segment]
+
+
+class SegmentExpansion (Segment):
+
+    def __init__(self, category, arg):
+        self.category = category
+        self.argument = arg
+
+    def expand(self, expander, select_segment):
+        return expander.expand(self.category, self.argument)
+
+
+
+# -----------------------------------------------------------------------------
+
+# Item
+
+class Item:
+
+    # This matches anything in an item that's not literal text, e.g.
+    #   \FOO/x        Category invocation
+    #   {se|lec|tor}  Variant selector
+
+    item_break = re.compile('(\\\\(\w+)(/([\w& ]))?)|({([^}]+)})')
+
+
+    def __init__(self, text):
+        self.segments = []
+
+        length = len(text)
+        string_pos = 0
+
+        while string_pos < length:
+
+            segmatches = self.item_break.search(text, string_pos)
+
+            # Literal from here to the end of the line
+            if segmatches is None:
+                self.segments.append(SegmentLiteral(text[string_pos:]))
+                break
+
+            # Category Invocation (\FOO/s)
+            elif segmatches.group(1):
+                invoke_start = segmatches.start(1)
+                if invoke_start > string_pos:
+                    self.segments.append(
+                        SegmentLiteral(text[string_pos:invoke_start]))
+                self.segments.append(SegmentExpansion(
+                        segmatches.group(2), segmatches.group(4)))
+                string_pos = segmatches.end(1)
+                continue
+
+            # Selector ({x|y|z})
+            elif segmatches.group(5):
+                selector_start = segmatches.start(5)
+                if selector_start > string_pos:
+                    self.segments.append(
+                        SegmentLiteral(text[string_pos:selector_start]))
+                self.segments.append(SegmentSelected(
+                        str(segmatches.group(6)).split('|')))
+                string_pos = segmatches.end(5)
+
+            else:
+                assert False, "Reached code that should not be reached."
+
+
+
+
+    def expand(self, arg, expander):
+        result = ( ''.join(
+                [seg.expand(expander, arg) for seg in self.segments]
+                ) )
+        return result
+
+
+
+# -----------------------------------------------------------------------------
+
+class Expander:
+
+    def __init__(self):
+        self.categories = {}
+
+    def add(self, category):
+        assert category.is_valid(), "Invalid catgegory"
+        self.categories[category.name] = category
+
+    def has(self, name):
+        return name in self.categories
+
+    def __len__(self):
+        return len(self.categories)
+
+
+    def expand(self, name, arg=' ', prev=' '):
+        if arg is None:
+            arg = ' '
+        if prev is None:
+            prev = ' '
+        assert ( (len(arg) is 1)
+                 and (len(prev) is 1) ), "Invalid multi-character argument"
+
+        if arg is '&':
+            arg = prev
+        if name in self.categories:
+            return self.categories[name].expand(self, arg)
+        else:
+            if not arg is ' ':
+                arg = '/' + arg
+            return '\\' + name + arg
+
+    def analyze(self, start_category):
+        return self.categories[start_category].analyze(self)
+
+
+# -----------------------------------------------------------------------------
+
+
+class Category:
+
+    # First line of a category is one of:
+    #   %XXX{yyy} for a category with arguments
+    #   %%        for end-of-file
+    # The latter is a holdover from the original 1987 version.
+
+    category_line = re.compile('^%(\w+|%)({([A-Za-z]+)})?$')
+    item_line = re.compile('^([(](\d+)[)])?(.*)$')
+
+    def __init__(self, reader):
+
+        """Constructor.  The returned object has a length that equals
+        the number of items in it."""
+
+        self.name = None
+
+        # Each of the items in the category
+        self.items = []
+
+        # An array representing all of the items with their weights
+        # considered.  For example:
+        #
+        #    %CATEGORY
+        #    (3)foo
+        #    (2)bar
+        #    baz
+        #
+        # will result in the weight map being [0, 0, 0, 1, 1, 2].  One
+        # of these picked at random will point at the correct entry in
+        # items[].
+        self.weightmap = []
+
+        #
+        # Category Header
+        #
+
+        header = reader.line()
+        if header is None:
+            return
+
+        matches = self.category_line.match(header)
+        if not matches:
+            raise SyntaxError("Syntax error in headline file")
+
+        name = matches.group(1)
+        if name is '%':
+            return
+        self.name = name
+
+        # The leading space covers the "default" case.
+        # TODO: Should probably make a constant out of this.
+        self.args = ' ' + str(matches.group(3))
+
+        #
+        # Category Items
+        #
+
+        while True:
+
+            line = reader.line()
+
+            # EOF gets us out.
+            if (line is None):
+                break
+
+            # So does anything that looks like a category header, but
+            # we don't want to consume that.
+
+            if self.category_line.match(line):
+                reader.pushback(line)
+                break
+
+            # Anything else is a regular item
+
+            matches = self.item_line.match(line)
+
+            if (not matches is None) and (not matches.group(2) is None):
+                # Weight specified, e.g., (12)Blah
+                weight = matches.group(2)
+                text = matches.group(3)
+            else:
+                # Weight not specified
+                weight = 1
+                text = line
+
+            item_number = len(self.items)
+            for entry in range(int(weight)):
+                self.weightmap.append(item_number)
+
+            item = Item(text)
+            self.items.append(item)
+
+
+    def is_valid(self):
+        return not self.name is None
+
+
+    def expand(self, expander, arg=' '):
+        """Return a random item, fully expanded"""
+        assert self.is_valid(), 'Invalid category'
+
+        argnum = self.args.find(arg)
+        if argnum is -1:
+            argnum = 0
+        return  ( self.items[random.choice(self.weightmap)]
+                  .expand(argnum, expander)
+                  if len(self.items) else '' )
+
+    def analyze(self, expander):
+        total = 0
+        for item in self.items:
+            total += item.analyze(expander)
+        return total
+
+
+# -----------------------------------------------------------------------------
+
+class Spewer:
+
+    START_CATEGORY='MAIN'
+
+    def __init__(self, headline_path):
+        reader = HeadlineFileReader(headline_path)
+        self.expander = Expander()
+
+        while True:
+            cat = Category(reader)
+            if not cat.is_valid():
+                break;
+            self.expander.add(cat)
+
+        if not self.expander.has(self.START_CATEGORY):
+            raise SyntaxError('No MAIN category in headline file '
+                              + headline_path)
+
+    def spew(self):
+        """Generate a single headline"""
+        return self.expander.expand(self.START_CATEGORY)
+
+    def analyze(self):
+        """Produce an analysis of the template"""
+        return len(self.expander), self.expander.analyze(self.START_CATEGORY)
+
+        
+
+# -----------------------------------------------------------------------------
+
+#
+# MAIN PROGRAM
+#
+
+# Gargle the arguments
+
+try:
+    options, args = getopt.getopt(sys.argv[1:], "apf:", ["help", "output="])
+except getopt.GetoptError as err:
+    die("Error: {0}", str(err))
+
+headline = ( os.environ['RULESFILE'] if 'RULESFILE' in os.environ
+             else 'headline' )
+analyze = False
+printout = False
+
+for opt, arg in options:
+    if opt == '-a':
+        analyze = True
+    elif opt == '-p':
+        printout = True
+    elif opt == '-f':
+        headline = arg
+    else:
+        assert False, "Unhandled option {0}".format(opt)
+
+if len(args) is 0:
+    args.append(1)
+try:
+    count = int(args[0])
+except ValueError:
+    die("Invalid count '{0}'", args[0])
+
+# Read the file and commence spewage
+
+spewer = Spewer(headline)
+
+
+if analyze:
+    classes, unique = spewer.analyze()
+    print "{0} classes generating {1} headlines".format(classes, unique)
+    sys.exit(0)
+
+
+for number in range(1, count+1):
+    print spewer.spew().strip(string.whitespace)
+    if number < count:
+        print

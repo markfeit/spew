@@ -1,0 +1,128 @@
+\*	Template to post articles like Steve Boursy would.
+
+%ADDRESS
+boursy@earthlink.net (ISP_Ratings)
+boursy@dhp.com (boursy)
+Stephen Boursy <boursy@idt.net>
+
+
+%NEWSGROUP
+alt.bonehead.john-grubor
+alt.censorship
+alt.culture.usenet
+alt.god.grubor
+alt.motherjones
+alt.usenet.admin
+alt.uunet.anti-trust
+alt.wired
+comp.admin.policy
+misc.legal
+news.admin.censorship
+news.admin.net-abuse.misc
+news.admin.net-scum
+news.admin.policy
+pa.general
+pgh.general
+talk.politics.misc
+
+%NEWSGROUPLIST
+\NEWSGROUP, \NEWSGROUP
+(3)\NEWSGROUP, \NEWSGROUPLIST
+
+%SUBJECTNAME
+Foo
+Bar
+Baz
+Bear
+Bike
+
+%SUBJECT
+\SUBJECTNAME
+(2)Re: \SUBJECTNAME
+(2)\SUBJECTNAME  Was: \SUBJECTNAME
+
+%NETGOD
+David C Lawrence
+Tim Skirvin
+Tiny Timmy Skirvin
+Chris Lewis
+EskWIRED
+
+%NETKOOK
+Dr. Grubor, the founder of all cyberspace
+Dr. Vuils
+
+%ACT{asg}
+{|a||}forg{ery|ery|eries|ing}
+{|a||}mass-mailing{||s|}
+{|a||}censor{|ing|s|ing}
+{|a||}cocksuck{er|er|ers|ing}
+
+%SCUMPART{g}
+(3)\ACT
+\ACT/g \ACT
+
+%SCUM
+(8)\SCUMPART
+little \SCUMPART
+\ACT/g \SCUMPART
+
+%PHRASE
+an apologist for censors and plug pullers
+
+%QUITE
+quite
+rather
+
+%INVESTIGATION
+look
+investigation
+
+%ISP
+AOL
+IDT
+Earthlink
+UUNET
+MFS/UUNET
+Netcom
+
+%STATEMENTFRAG{c}
+{h|H}e is \QUITE the \SCUM
+{s|S}omething \QUITE final must be done about this \SCUM
+{w|W}e will be watching \NETGOD's \ACT/s closely
+{h|H}e deserves \QUITE a long \INVESTIGATION offline
+{t|T}his \ACT/g bastard shouldn't even be allowed on campus, much less near a university computer
+{n|N}o decent ISP accepts cancels--over 95% are forged
+{t|T}his \NETGOD is a sad piece of work
+
+
+%STATEMENTCONT
+(3)\STATEMENTFRAG
+\STATEMENTFRAG--\STATEMENTCONT
+
+%STATEMENT
+\STATEMENTFRAG/c.
+\STATEMENTFRAG/c--\STATEMENTCONT.
+
+%PARAGRAPH
+\STATEMENT
+(2)\STATEMENT  \PARAGRAPH
+
+%BOURSYRANT
+(2)\PARAGRAPH
+\PARAGRAPH\!\!\BOURSYRANT
+
+
+%SIG
+\!\!                     Steve\!                     news.admin.censorship
+
+
+
+
+
+%MAIN
+From: \ADDRESS\!Newsgroups: \NEWSGROUPLIST\!Subject: \SUBJECT\!\!\BOURSYRANT\!\SIG\!
+%%
+
+
+

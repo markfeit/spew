@@ -1,0 +1,121 @@
+\*	SPEW File to Generate Complete Gibberish
+\*
+\*	By Mark A. Feit <feit@cs.odu.edu> or <...uunet!era!feit>
+\*
+\*	Add a list of your favorite (or unfavorite) people under
+\*	%PERSON.
+\*
+\*	This material is copyright (C)1991 Mark A. Feit.  Permission to
+\*	use, copy, modify and distribute this material is hereby granted
+\*	free of license to all, provided this notice appears in its
+\*	entirety.  Modified files must be distributed with a notice
+\*	indicating that it is not the "official" version.
+
+%PERSON
+Bart Simpson
+Batman
+Bilbo Baggins
+Boris Badenov
+Buckwheat
+Bugs Bunny
+Captain Kirk
+Dick Tracy
+Elmer Fudd
+Freddy Kreuger
+Gilligan
+James Bond
+Maxwell Smart
+Roger Rabbit
+Santa Claus
+Zippy the Pinhead
+
+
+%UCCONSONANT
+Ch
+Sh
+B
+C
+D
+F
+G
+H
+J
+K
+L
+M
+N
+P
+Qu
+R
+S
+T
+V
+W
+Y
+Z
+
+
+\* "X" Was left out!
+%LCCONSONANT
+ch
+sh
+b
+c
+d
+f
+g
+h
+j
+k
+l
+m
+n
+p
+qu
+r
+s
+t
+v
+w
+y
+z
+
+%VOWEL
+a
+e
+i
+o
+u
+
+%ENDLETTER
+(3)\LCCONSONANT
+\VOWEL
+
+%PUNCT
+(20)
+:
+;
+,
+
+
+%ENDPUNCT
+(3).
+!
+?
+
+%WORDINNARDS
+\LCCONSONANT\VOWEL
+(1)\LCCONSONANT\VOWEL\WORDINNARDS
+
+%WORD
+\LCCONSONANT\VOWEL\WORDINNARDS\ENDLETTER
+
+%WORDS
+\WORD
+(10)\WORD\PUNCT \WORDS
+
+%SENTENCES
+\UCCONSONANT\VOWEL\WORD \WORDS\ENDPUNCT\!
+
+%MAIN
+In the immortal words of \PERSON:\!\!\SENTENCES

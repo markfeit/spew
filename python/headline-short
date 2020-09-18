@@ -1,0 +1,28 @@
+\* Short headline file
+
+%EMPTY_CATEGORY
+
+%TEST{as}
+Full-String Literal
+\PLAIN_INV
+\FANCY_INC/x
+{se|lec|tor}
+Combined \PLAIN_INV literal2 \FANCY_INC/x literal3 {se|lec|tor} literal4
+
+%WHO
+Alice
+Bob
+Charlie
+Dave
+Eric
+Fran
+
+%FRUIT{as}
+{|an |}Apple{||s}
+{|a |}Banana{||s}
+
+%MAIN
+\WHO is \FRUIT/a
+\WHO ate \FRUIT/s
+
+%%

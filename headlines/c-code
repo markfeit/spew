@@ -1,0 +1,352 @@
+\*	SPEW File to Generate syntactically-correct C code
+\*
+\*	By Mark A. Feit <feit@era.com> or <...uunet!era!feit>
+\*
+\*	This material is copyright (C)1992 Mark A. Feit.  Permission to
+\*	use, copy, modify and distribute this material is hereby granted
+\*	free of license to all, provided this notice appears in its
+\*	entirety.  Modified files must be distributed with a notice
+\*	indicating that it is not the "official" version.
+
+
+\*					TYPE NAMES
+%TYPE
+void
+int
+char
+float
+unsigned
+struct \TYPENAME
+union \TYPENAME
+
+
+\*					WHETHER OR NOT SOMETHING'S A POINTER
+%POINTER
+(5)
+*
+
+
+\*					STRUCTURE SELECTORS
+%ARROW
+->
+.
+
+
+\*					POSSIBLE TYPE NAMES FOR STRUCTURES
+%TYPENAME
+accountant
+air_traffic_controller
+avon_lady
+bachelor
+bag_lady
+college_professor
+construction_worker
+disc_jockey
+dog_catcher
+drag_queen
+drummer
+fanatic
+flasher
+french_whore
+geek
+gigolo
+goofball
+hairdresser
+irs_man
+idiot
+mercenary
+murderer
+news_anchor
+pan_flutist
+photographer
+pinhead
+playboy_playmate
+policeman
+politician
+pornographer
+prostitute
+punk
+sideshow_freak
+skinhead
+sniper
+soldier
+spinster
+street_walker
+stripper
+strumpet
+student
+surfer
+transvestite
+trollop
+tupperware_lady
+
+
+\*					FUNCTION NAMES
+%FUNCNAME
+admit
+bellow
+blurt
+chew_up
+chow_down_on
+claim
+coo
+cry
+devour
+divulge
+eat
+gobble
+howl
+injure
+insist
+kidnap
+knife
+maim
+masticate
+molest
+mug
+pound
+reveal
+roar
+say
+scream
+screech
+shout
+shriek
+swear
+take
+trash
+wail
+whisper
+
+
+\*					NAMES OF FIELDS
+%FIELDNAME
+apple
+banana
+blueberry
+cherry
+guava
+honeydew_mellon
+kiwi_fruit
+lemon
+lime
+mango
+nectarine
+orange
+papaya
+passion_fruit
+pear
+peach
+plum
+tangerine
+watermelon
+
+
+\*						NAMES OF ARGUMENTS
+%ARGNAME
+alga
+algae_eater
+bee
+bird
+bug
+bull
+cat
+chickadee
+clam
+cockroach
+cow
+crab
+crocodile
+dog
+dolphin
+elephant
+ewok
+exterminator
+fish
+gerbil
+goat
+house_plant
+jabberwock
+kitten
+kitty
+leopard
+lion
+lobster
+millipede
+moose
+mouse
+octopus
+otter
+oyster
+paramecium
+panda
+parakeet
+parrot
+penguin
+planarian
+puddy_tat
+puppy
+seal
+shark
+snail
+snipe
+squid
+tiger
+wasp
+whale
+wombat
+worm
+
+
+\*						OPERATORS
+%OP
++
+-
+*
+/
+\%
+&
+|
+
+
+\*						ASSIGNMENTS
+%ASSIGN
+=
+\OP=
+
+
+\*						A CONDITION
+%CONDITION
+\EXPR\CONDITIONAL\EXPR
+
+
+\*						CONDITIONAL OPS
+%CONDITIONAL
+==
+!=
+>
+<
+>=
+<=
+
+\*						NUMBERS
+
+%HEXDIGITS
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+a
+b
+c
+d
+e
+f
+(5)\HEXDIGITS
+(5)\HEXDIGITS\HEXDIGITS
+
+%HEXNUMBER
+0x\HEXDIGITS
+
+%DECNUMBER
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+(5)\DECNUMBER
+(5)\DECNUMBER\DECNUMBER
+
+%NUMBER
+(4)\DECNUMBER
+\HEXNUMBER
+
+
+\*						CASTING
+%CAST
+(1)(\TYPE \POINTER)
+(5)
+
+
+\*						EXPRESSIONS
+%EXPR
+\CAST\EXPR
+\(\EXPR\)
+\FUNCNAME(\CALLARGS)
+\ARGNAME\ARROW\FIELDNAME
+\ARGNAME
+\ARGNAME[\EXPR]
+\ARGNAME\OP\EXPR
+\NUMBER
+
+
+\*						A SINGLE ARGUMENT
+%ONEARG
+\TYPE \POINTER\ARGNAME
+
+
+\*						A LIST OF ARGUMENTS
+%ARGS
+(3)\ONEARG, \ARGS
+(1)\ONEARG
+
+
+\*						CALLER'S ARGUMENT LIST
+%CALLARGS
+(3)\ARGNAME, \CALLARGS
+(2)\EXPR
+(1)\ARGNAME
+
+
+\*						A WHOLE FUNCTION
+%ONEFUNCTION
+\TYPE \POINTER\FUNCNAME(\ARGS)\!\FUNCTIONBODY
+
+
+\*						A WHOLE STATEMENT
+%ONESTATEMENT
+for( \ARGNAME\ASSIGN\EXPR ; \CONDITION ; \ARGNAME\ASSIGN\EXPR )\FUNCTIONBODY
+if (\CONDITION)\FUNCTIONBODY
+do \FUNCTIONBODY while (\CONDITION);
+while (\CONDITION) \FUNCTIONBODY
+(6)\ARGNAME\ASSIGN\EXPR;
+(5)\FUNCNAME(\CALLARGS);
+
+
+\*						A GAGGLE OF STATEMENTS
+%STATEMENTS
+(2)\ONESTATEMENT\!\STATEMENTS
+\ONESTATEMENT\!
+
+
+\*						A COMPOUND STATEMENT
+%FUNCTIONBODY
+\{\!\STATEMENTS\}\!
+
+
+\*						A BUNCH O' FUNCTIONS
+%FUNCTIONS
+(4)\ONEFUNCTION\!\!\FUNCTIONS
+\!
+
+
+\*						THE MAIN PROGRAM
+%MAINBODY
+\!\!void main()\!\FUNCTIONBODY\!
+
+
+\*						SPEW STARTS HERE
+%MAIN
+\FUNCTIONS\MAINBODY
+%%
