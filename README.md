@@ -34,3 +34,21 @@ The C and Perl versions are fully-functional; the others are in an
 unknown state.
 
 Templates are in the `headlines` directory.
+
+You can run the Perl version and generate ten headlines from one of
+the templates like this:
+
+```
+$ perl/spew.pl -f headlines/buzzword 10
+
+Total Management Environment
+Company-wide Memory Management Outlook
+Corporate-Approved Management Scheme
+Company-wide Workstation Plan
+Complete Disk Allocation Scheme
+Company-wide Disk Allocation Plan
+Corporate-Approved Disk Allocation Environment
+Company-wide Workstation Outlook
+Company-wide Disk Allocation Outlook
+Total Networking Environment
+```
