@@ -1,0 +1,96 @@
+\*	SPEW File to Generate IP Addresses
+\*
+\*	This material is copyright (C)2025 Mark A. Feit.  Permission to
+\*	use, copy, modify and distribute this material is hereby granted
+\*	free of license to all, provided this notice appears in its
+\*	entirety.  Modified files must be distributed with a notice
+\*	indicating that it is not the "official" version.
+
+\*
+\* Building Blocks
+\*
+
+%DIGIT
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+%HEXDIGIT
+(10)\DIGIT
+a
+b
+c
+d
+e
+f
+
+%DIGIT04
+0
+1
+2
+3
+4
+
+%DIGIT05
+0
+1
+2
+3
+4
+5
+
+%DIGIT19
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+\*
+\* IPv4 - Totally Random
+\*
+
+%IPV4OCTET
+(9)\DIGIT19
+(90)\DIGIT19\DIGIT
+(100)1\DIGIT\DIGIT
+(50)2\DIGIT04\DIGIT
+(4)25\DIGIT04
+
+%IPV4ADDR
+\IPV4OCTET.\IPV4OCTET.\IPV4OCTET.\IPV4OCTET
+
+
+\*
+\* IPv6 - First 256 addresses within a prefix
+\*
+
+%IPV6PREFIX
+2001:db8:dead:beef
+2001:db8:1bad:cafe
+
+%IPV6ADDR
+\IPV6PREFIX::\HEXDIGIT\HEXDIGIT
+
+%ADDRESS
+\IPV4ADDR
+\IPV6ADDR
+
+
+\*
+\* The Main Event
+\*
+
+%MAIN
+\ADDRESS\!
